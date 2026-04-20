@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Instrument+Serif&display=swap');
+
+@layer base {
+  :root {
+    --background: 222 47% 5%;
+    --foreground: 213 31% 95%;
+    --card: 222 40% 7%;
+    --card-foreground: 213 31% 95%;
+    --primary: 213 100% 62%;
+    --primary-foreground: 222 47% 5%;
+    --muted: 222 30% 12%;
+    --muted-foreground: 215 20% 55%;
+    --border: 213 40% 15%;
+    --radius: 0.75rem;
+    --font-instrument-serif: 'Instrument Serif', serif;
+  }
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-syne), 'Syne', sans-serif;
+}
+
+/* Grid overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(hsl(213 100% 62% / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(213 100% 62% / 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: hsl(var(--background)); }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--primary) / 0.4); }
