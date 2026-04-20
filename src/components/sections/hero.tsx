@@ -13,7 +13,7 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             className="inline-flex items-center gap-2 bg-[hsl(var(--card))] border border-[hsl(var(--primary)/30%)] rounded-full px-4 py-1.5 text-xs font-medium text-[hsl(var(--primary))] uppercase tracking-widest mb-7"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--primary))] animate-pulse" />
@@ -23,7 +23,7 @@ export function HeroSection() {
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="font-display font-extrabold text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight mb-6"
           >
             Your leads.<br />
@@ -34,7 +34,7 @@ export function HeroSection() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
             className="text-[hsl(var(--muted-foreground))] text-lg font-light leading-relaxed max-w-lg mb-10"
           >
             I help founders and growing teams keep their lead pipelines clean,
@@ -44,7 +44,7 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.3, delay: 0.3 }}
             className="flex flex-wrap gap-4 mb-12"
           >
             <ShinyButton
@@ -88,7 +88,7 @@ export function HeroSection() {
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           className="hidden lg:flex flex-col items-center gap-4"
         >
           {/* 3D viewport card */}
@@ -97,7 +97,7 @@ export function HeroSection() {
               className="bg-[hsl(var(--primary))] opacity-70 group-hover:opacity-100 transition-opacity duration-500"
               size={120}
               transition={{
-                duration: 6,
+                duration: 4,
                 ease: "linear",
                 repeat: Infinity,
               }}
@@ -108,7 +108,7 @@ export function HeroSection() {
             
             {/* Ambient glow behind scene */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_40%,hsl(var(--primary)/18%),transparent_65%)] pointer-events-none z-10" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/8%),transparent_80%)] pointer-events-none z-10 animate-pulse" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/8%),transparent_80%)] pointer-events-none z-10" />
 
             {/* Corner accent */}
             <div className="absolute top-3 left-3 z-20 flex items-center gap-2">

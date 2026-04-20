@@ -80,26 +80,18 @@ export function CursorCanvas() {
           continue;
         }
 
-        // Draw particle with enhanced glow
+        // Draw particle with simplified glow
         const gradient = ctx!.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
-        const alpha = p.life * 0.2; // Slightly more visible for the glow
+        const alpha = p.life * 0.15; // Slightly less alpha for performance
         
-        // Luminous core for the "glow" look
         gradient.addColorStop(0, `hsla(${p.hue}, 100%, 95%, ${alpha})`); 
-        gradient.addColorStop(0.1, `hsla(${p.hue}, 100%, 80%, ${alpha * 0.8})`);
-        gradient.addColorStop(0.4, `hsla(${p.hue}, 100%, 60%, ${alpha * 0.4})`);
+        gradient.addColorStop(0.4, `hsla(${p.hue}, 100%, 70%, ${alpha * 0.4})`);
         gradient.addColorStop(1, `hsla(${p.hue}, 100%, 60%, 0)`);
 
-        ctx!.shadowBlur = 15;
-        ctx!.shadowColor = `hsla(${p.hue}, 100%, 70%, ${alpha})`;
-        
         ctx!.fillStyle = gradient;
         ctx!.beginPath();
         ctx!.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx!.fill();
-        
-        // Reset shadow for next particle (good practice)
-        ctx!.shadowBlur = 0;
       }
 
       animationFrameId = window.requestAnimationFrame(render);
