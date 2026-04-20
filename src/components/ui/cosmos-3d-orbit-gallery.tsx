@@ -86,16 +86,12 @@ export function ParticleSphere({ images }: ParticleSphereProps) {
       <points>
         <bufferGeometry>
           <bufferAttribute
-            attach="attributes-position"
-            count={positions.length / 3}
-            array={positions}
-            itemSize={3}
+            attach="position"
+            args={[positions, 3]}
           />
           <bufferAttribute
-            attach="attributes-color"
-            count={colors.length / 3}
-            array={colors}
-            itemSize={3}
+            attach="color"
+            args={[colors, 3]}
           />
         </bufferGeometry>
         <pointsMaterial size={PARTICLE_SIZE} vertexColors transparent opacity={0.8} />
