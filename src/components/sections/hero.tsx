@@ -118,14 +118,10 @@ export function HeroSection() {
               </span>
             </div>
 
-            {/* Temporarily disabled Spline for performance testing */}
-            {/* <SplineScene
+            <SplineScene
               scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
               className="w-full h-full"
-            /> */}
-            <div className="w-full h-full bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/15%),transparent_70%)] flex items-center justify-center">
-               <div className="text-[hsl(var(--primary)/40%)] text-4xl font-bold italic tracking-tighter uppercase">Automated</div>
-            </div>
+            />
           </div>
 
           {/* Caption row */}
