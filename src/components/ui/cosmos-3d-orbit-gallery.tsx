@@ -75,8 +75,9 @@ export function ParticleSphere({ images }: ParticleSphereProps) {
       euler.setFromRotationMatrix(matrix)
 
       const texture = textures[i % textures.length]
-      const aspectRatio = texture && texture.image && texture.image.width > 0 
-        ? texture.image.width / texture.image.height 
+      const img = texture?.image as HTMLImageElement | undefined
+      const aspectRatio = img && img.width > 0 
+        ? img.width / img.height 
         : 1.777; // Default to 16:9 if not yet available
 
       imgs.push({
