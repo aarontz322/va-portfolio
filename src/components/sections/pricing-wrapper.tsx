@@ -29,7 +29,7 @@ const plans = [
       { text: "Competitor & prospect research" },
       { text: "SOP documentation & follow-through" },
     ],
-    btn: { text: "Book a Call", href: "#contact" },
+    btn: { text: "Book a Call", href: "https://calendly.com/eyronggwp/30min" },
     highlighted: true,
   },
   {

@@ -51,7 +51,7 @@ export function AboutSection() {
                 onlinejobs: "https://v2.onlinejobs.ph/jobseekers/info/397279",
                 upwork: "https://www.upwork.com/freelancers/~016f67fb01cce8e9ab",
               }}
-              calendlyLink="#contact"
+              calendlyLink="https://calendly.com/eyronggwp/30min"
             />
           </motion.div>
         </div>
