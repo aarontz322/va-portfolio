@@ -33,7 +33,7 @@ export function ContactSection() {
             <div className="flex flex-wrap justify-center gap-4 mb-14">
               <ShinyButton
                 onClick={() =>
-                  window.open("mailto:eyronggwp@gmail.com", "_blank")
+                  window.open("https://calendly.com/eyronggwp/30min", "_blank")
                 }
                 className="text-[hsl(var(--foreground))] border border-[hsl(var(--primary)/50%)] bg-[hsl(var(--primary)/10%)] px-10 py-3 text-sm"
               >

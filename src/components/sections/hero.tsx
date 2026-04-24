@@ -48,7 +48,7 @@ export function HeroSection() {
             className="flex flex-wrap gap-4 mb-12"
           >
             <ShinyButton
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => window.open("https://calendly.com/eyronggwp/30min", "_blank")}
               className="text-[hsl(var(--foreground))] border border-[hsl(var(--primary)/50%)] bg-[hsl(var(--primary)/10%)] px-8 py-3 text-sm"
             >
               Schedule a Discovery Call

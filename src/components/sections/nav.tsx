@@ -20,7 +20,7 @@ export function Nav() {
         ))}
       </ul>
       <ShinyButton
-        onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+        onClick={() => window.open("https://calendly.com/eyronggwp/30min", "_blank")}
         className="text-[hsl(var(--foreground))] border border-[hsl(var(--border))]"
       >
         Book a Call
