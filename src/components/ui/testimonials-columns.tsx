@@ -5,25 +5,31 @@ import { motion } from "framer-motion";
 export const testimonials = [
   {
     text: "Thank you for keeping an eye on things and taking good care of them while I was gone. Your efforts are much appreciated.",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&fit=crop&crop=face",
+    image: "avatars/Eric.png",
     name: "Eric Udell",
     role: "Arizona Natural Health Center",
   },
   {
     text: "I am seeing 20+ per week accepting the invites, so it seems like a pretty good success rate to me.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",
+    image: "avatars/Nick.png",
     name: "Nick Jarvis",
     role: "Pinnacle Logistics",
   },
   {
-    text: "I hired Mark to help with admin tasks and he not only did what I asked very fast but went above and beyond. I would recommend his services to anyone.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face",
+    text: "Aaron has been a great help, very reliable , and I really appreciate the updates he provides. His work has been amazing, and he always makes things easy for me to review and manage. I’m happy to trust him with additional work because I know he delivers quality results.",
+    image: "avatars/Gloria.png",
+    name: "Gloria Cuttica",
+    role: "Digital Marketing Strategist",
+  },
+  {
+    text: "I hired Aaron to help with admin tasks and he not only did what I asked very fast but went above and beyond. I would recommend his services to anyone.",
+    image: "avatars/Stuart.png",
     name: "Stuart Baker",
     role: "Forbes Trading LLC",
   },
   {
     text: "I trust and appreciate you. I have been taken advantage of before — that is why I triple check to make sure we are hitting our targets.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face",
+    image: "avatars/Forest.png",
     name: "Forest Hipp",
     role: "Legal Spark LLC",
   },

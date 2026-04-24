@@ -5,8 +5,8 @@ import {
   testimonials,
 } from "@/components/ui/testimonials-columns";
 
-const firstColumn = testimonials.slice(0, 2);
-const secondColumn = testimonials.slice(2, 4);
+const firstColumn = testimonials.slice(0, 3);
+const secondColumn = testimonials.slice(3, 5);
 
 export function TestimonialsSection() {
   return (
