@@ -19,7 +19,7 @@ export const testimonials = [
     text: "Aaron has been a great help, very reliable , and I really appreciate the updates he provides. His work has been amazing, and he always makes things easy for me to review and manage. I’m happy to trust him with additional work because I know he delivers quality results.",
     image: "avatars/Gloria.png",
     name: "Gloria Cuttica",
-    role: "Digital Marketing Strategist",
+    role: "Interopa Holidays",
   },
   {
     text: "I hired Aaron to help with admin tasks and he not only did what I asked very fast but went above and beyond. I would recommend his services to anyone.",

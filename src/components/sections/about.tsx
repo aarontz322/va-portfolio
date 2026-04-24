@@ -42,6 +42,7 @@ export function AboutSection() {
               role="Lead Gen, Outreach and Automation Specialist"
               email="eyronggwp@gmail.com"
               bio="I help founders scale by automating their friction and managing their lead machines."
+              avatarSrc="/about-me.jpg"
               skills={["Lead Gen", "Outreach", "Automations", "Data"]}
               status="available"
               socialLinks={{
