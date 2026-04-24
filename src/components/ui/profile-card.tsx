@@ -152,19 +152,19 @@ export function ProfileCard({
                      fill
                      sizes="96px"
                      className="object-cover"
-                     style={{ objectPosition: '80% 30%' }}
+                     style={{ objectPosition: '90% 25%' }}
                    />
                   )}
                 </div>
               </div>
             </motion.div>
 
-            <div className="flex-1 text-center sm:text-left">
-              <h1 className="mb-1 text-3xl font-extrabold tracking-tighter text-white sm:text-4xl font-display">
+            <div className="flex-1 text-center sm:text-left min-w-0">
+              <h1 className="mb-1 text-2xl sm:text-3xl font-extrabold tracking-tighter text-white font-display truncate sm:whitespace-normal">
                 {name}
               </h1>
-              <p className="mb-4 text-base font-semibold text-[hsl(var(--primary))] uppercase tracking-wider">{role}</p>
-              <p className="text-sm text-gray-400 font-light leading-relaxed">{bio}</p>
+              <p className="mb-4 text-sm sm:base font-semibold text-[hsl(var(--primary))] uppercase tracking-wider">{role}</p>
+              <p className="text-xs sm:text-sm text-gray-400 font-light leading-relaxed line-clamp-3 sm:line-clamp-none">{bio}</p>
             </div>
           </div>
 
