@@ -15,7 +15,7 @@ const plans = [
       { text: "Daily progress updates" },
       { text: "US time zone availability" },
     ],
-    btn: { text: "Get Started", href: "#contact" },
+    btn: { text: "Book a Call", href: "https://calendly.com/eyronggwp/30min" },
   },
   {
     name: "Scale & Automate",
@@ -44,7 +44,7 @@ const plans = [
       { text: "Automation support (Make, Zapier)" },
       { text: "Priority response & turnaround" },
     ],
-    btn: { text: "Get Started", href: "#contact" },
+    btn: { text: "Book a Call", href: "https://calendly.com/eyronggwp/30min" },
   },
 ];
 
