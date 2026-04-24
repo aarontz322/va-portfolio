@@ -152,6 +152,7 @@ export function ProfileCard({
                      fill
                      sizes="96px"
                      className="object-cover"
+                     style={{ objectPosition: '80% 30%' }}
                    />
                   )}
                 </div>
