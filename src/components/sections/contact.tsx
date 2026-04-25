@@ -21,7 +21,7 @@ export function ContactSection() {
             <div className="text-xs font-semibold text-[hsl(var(--primary))] uppercase tracking-widest mb-4">
               // Let's Work Together
             </div>
-            <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight mb-5">
+            <h2 className="font-display font-bold text-3xl md:text-5xl tracking-[-0.03em] mb-5">
               Ready to get your operations{" "}
               <span className="text-[hsl(var(--primary))]">under control?</span>
             </h2>

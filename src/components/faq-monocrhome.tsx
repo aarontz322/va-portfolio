@@ -338,7 +338,7 @@ function FAQ1({ items = faqs }: FAQ1Props) {
         <header className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div className="space-y-4">
             <p className={`text-xs uppercase tracking-[0.35em] ${palette.muted}`}>Help Center</p>
-            <h1 className={`text-4xl font-semibold leading-tight md:text-5xl ${palette.heading} font-display tracking-tight`}>
+            <h1 className={`text-4xl font-semibold leading-tight md:text-5xl ${palette.heading} font-display tracking-tighter`}>
               Clarity over complexity.
             </h1>
             <p className={`max-w-xl text-base ${palette.muted} font-light`}>

@@ -24,7 +24,7 @@ export function TransformSection() {
           <div className="text-xs font-semibold text-[hsl(var(--primary))] uppercase tracking-widest mb-3">
             // The Problem & Solution
           </div>
-          <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight mb-4">
+          <h2 className="font-display font-bold text-3xl md:text-5xl tracking-[-0.03em] mb-4">
             I fix the gaps that slow you down.
           </h2>
           <p className="text-[hsl(var(--muted-foreground))] text-base font-light">
@@ -45,7 +45,7 @@ export function TransformSection() {
             >
               <div className="relative flex items-center gap-3 bg-red-950/20 border border-red-500/30 rounded-l-xl px-5 py-4 text-sm text-[hsl(var(--muted-foreground))] shadow-[0_0_15px_rgba(239,68,68,0.05)] group-hover:shadow-[0_0_20px_rgba(239,68,68,0.2)] transition-all duration-300 overflow-hidden">
                 <BorderTrail
-                  className="bg-red-500"
+                  className="bg-red-500 hidden md:block"
                   size={100}
                   transition={{
                     duration: 6,
@@ -62,7 +62,7 @@ export function TransformSection() {
               <div className="flex items-center justify-center bg-[hsl(var(--background))] border-y border-[hsl(var(--border))] text-[hsl(var(--primary))] text-lg group-hover:text-white transition-colors relative z-10">→</div>
               <div className="relative flex items-center gap-3 bg-[hsl(var(--primary)/8%)] border border-[hsl(var(--primary)/30%)] rounded-r-xl px-5 py-4 text-sm text-[hsl(var(--foreground))] shadow-[0_0_15px_hsl(var(--primary)/0.1)] group-hover:shadow-[0_0_25px_hsl(var(--primary)/0.3)] transition-all duration-300 overflow-hidden">
                 <BorderTrail
-                  className="bg-[hsl(var(--primary))]"
+                  className="bg-[hsl(var(--primary))] hidden md:block"
                   size={120}
                   style={{
                     boxShadow: "0 0 20px 10px hsl(var(--primary)/0.3)",

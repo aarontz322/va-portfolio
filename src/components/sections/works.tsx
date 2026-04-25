@@ -40,7 +40,7 @@ export function WorksSection() {
           <div className="text-xs font-semibold text-[hsl(var(--primary))] uppercase tracking-widest mb-3">
             // Portfolio
           </div>
-          <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight mb-4">
+          <h2 className="font-display font-bold text-3xl md:text-5xl tracking-[-0.03em] mb-4">
             A glimpse of my work
           </h2>
           <p className="text-[hsl(var(--muted-foreground))] font-light">
@@ -79,7 +79,7 @@ export function WorksSection() {
                 className="group relative bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
               >
                 <BorderTrail
-                  className="bg-[hsl(var(--primary))] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="bg-[hsl(var(--primary))] opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:block"
                   size={120}
                   style={{
                     boxShadow: "0 0 20px 10px hsl(var(--primary)/0.3)",

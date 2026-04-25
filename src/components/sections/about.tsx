@@ -67,7 +67,7 @@ export function AboutSection() {
             <div className="text-xs font-semibold text-[hsl(var(--primary))] uppercase tracking-widest mb-3">
               // About Me
             </div>
-            <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight leading-[1.1] mb-8">
+            <h2 className="font-display font-bold text-3xl md:text-5xl tracking-[-0.03em] leading-[1.1] mb-8">
               Detail-focused.<br />
               Process-driven.<br />
               <span className="text-[hsl(var(--primary))]">Reliable.</span>

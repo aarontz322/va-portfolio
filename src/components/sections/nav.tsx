@@ -4,7 +4,7 @@ import { ShinyButton } from "@/components/ui/shiny-button";
 export function Nav() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-[5%] h-16 flex items-center justify-between bg-[hsl(var(--background)/85%)] backdrop-blur-md border-b border-[hsl(var(--border))]">
-      <div className="font-display font-extrabold text-lg tracking-tight">
+      <div className="font-display font-bold text-lg tracking-[-0.02em]">
         Aaron<span className="text-[hsl(var(--primary))]">.</span>Novicio
       </div>
       <ul className="hidden md:flex items-center gap-8 list-none">

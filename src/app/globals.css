@@ -38,11 +38,13 @@ body {
   font-family: var(--font-syne), 'Syne', sans-serif;
 }
 
-/* Grid overlay */
+/* Grid overlay - optimized for scroll performance */
 body::before {
   content: '';
-  position: fixed;
+  position: absolute;
   inset: 0;
+  height: 100%;
+  width: 100%;
   background-image:
     linear-gradient(hsl(213 100% 62% / 0.04) 1px, transparent 1px),
     linear-gradient(90deg, hsl(213 100% 62% / 0.04) 1px, transparent 1px);
