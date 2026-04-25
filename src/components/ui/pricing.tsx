@@ -56,7 +56,7 @@ export function PricingSection({
       {...props}
     >
       <div className="mx-auto max-w-xl space-y-2">
-        <h2 className="text-center text-2xl font-bold tracking-tight md:text-3xl lg:text-4xl font-display">
+        <h2 className="text-center text-xl md:text-3xl lg:text-4xl font-display font-bold tracking-[-0.03em]">
           {heading}
         </h2>
         {description && (
@@ -157,10 +157,11 @@ export function PricingCard({
               "0px 0px 60px 30px rgb(59 142 255 / 30%), 0 0 100px 60px rgb(59 142 255 / 15%)",
           }}
           size={100}
+          className="hidden md:block"
         />
       ) : (
         <BorderTrail
-          className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:block"
           style={{
             boxShadow: "0 0 20px 10px rgba(59, 130, 246, 0.25)",
           }}
@@ -193,10 +194,10 @@ export function PricingCard({
           )}
         </div>
 
-        <div className="text-lg font-medium font-display">{plan.name}</div>
+        <div className="text-lg font-medium font-display tracking-tighter">{plan.name}</div>
         <p className="text-muted-foreground text-base font-normal">{plan.info}</p>
         <h3 className="mt-2 flex items-end gap-1">
-          <span className="text-3xl font-bold font-display">
+          <span className="text-3xl font-bold font-display tracking-tighter">
             ${frequency === "monthly" ? plan.price.monthly : Math.round(plan.price.yearly / 12)}
           </span>
           <span className="text-muted-foreground">

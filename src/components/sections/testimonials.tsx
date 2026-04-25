@@ -28,7 +28,7 @@ export function TestimonialsSection() {
           <div className="inline-flex items-center border border-[hsl(var(--border))] px-4 py-1 rounded-lg text-sm text-[hsl(var(--muted-foreground))] mb-4">
             Testimonials
           </div>
-          <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight mb-4">
+          <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tighter mb-4">
             What clients say
           </h2>
           <p className="text-[hsl(var(--muted-foreground))] font-light">

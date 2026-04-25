@@ -69,10 +69,10 @@ export const TestimonialsColumn = (props: {
                     className="h-10 w-10 rounded-full object-cover border border-[hsl(var(--border))]"
                   />
                   <div className="flex flex-col">
-                    <div className="font-medium text-sm tracking-tight leading-5 text-[hsl(var(--foreground))]">
+                    <div className="font-medium text-sm tracking-[-0.02em] leading-5 text-[hsl(var(--foreground))]">
                       {name}
                     </div>
-                    <div className="text-xs leading-5 text-[hsl(var(--muted-foreground))] tracking-tight">
+                    <div className="text-xs leading-5 text-[hsl(var(--muted-foreground))] tracking-[-0.02em]">
                       {role}
                     </div>
                   </div>

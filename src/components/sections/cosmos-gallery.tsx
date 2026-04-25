@@ -1,5 +1,6 @@
 "use client"
-
+import { useRef } from "react"
+import { useInView } from "framer-motion"
 import dynamic from "next/dynamic"
 
 const CosmosCanvas = dynamic(() => import("@/components/ui/cosmos-canvas"), {
@@ -12,6 +13,9 @@ const CosmosCanvas = dynamic(() => import("@/components/ui/cosmos-canvas"), {
 })
 
 export function CosmosGallery() {
+  const containerRef = useRef(null)
+  const isInView = useInView(containerRef, { amount: 0.1, once: false })
+
   // The 11 sample work images from /public/works/
   const workImages = [
     "/works/Airtable%20Auto.png",
@@ -27,9 +31,8 @@ export function CosmosGallery() {
     "/works/Make%20Sample%20Automations.png",
   ]
 
-
   return (
-    <section id="cosmos-gallery" className="relative w-full h-[80vh] bg-black overflow-hidden">
+    <section ref={containerRef} id="cosmos-gallery" className="relative w-full h-[80vh] bg-black overflow-hidden">
       {/* Heading overlay */}
       <div className="absolute top-0 left-0 right-0 z-10 pt-16 pb-6 pointer-events-none">
         <h2 className="max-w-3xl mx-auto text-white text-center font-instrument-serif px-6 md:text-5xl text-3xl text-balance tracking-tight font-normal leading-tight">
@@ -38,9 +41,9 @@ export function CosmosGallery() {
         </h2>
       </div>
 
-      {/* 3D Canvas — SSR disabled */}
+      {/* 3D Canvas — Only render when in view */}
       <div className="absolute inset-0">
-        <CosmosCanvas images={workImages} />
+        {isInView && <CosmosCanvas images={workImages} />}
       </div>
 
       {/* Bottom fade */}

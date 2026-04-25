@@ -23,7 +23,7 @@ export function ServicesSection() {
           className="mb-14"
         >
           <div className="text-xs font-semibold text-[hsl(var(--primary))] uppercase tracking-widest mb-3">// What I Do</div>
-          <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight mb-4">Services I offer as your VA</h2>
+          <h2 className="font-display font-bold text-3xl md:text-5xl tracking-[-0.03em] mb-4">Services I offer as your VA</h2>
           <p className="text-[hsl(var(--muted-foreground))] font-light">Six things I do well — so you can hand them off and stop thinking about them.</p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -37,7 +37,7 @@ export function ServicesSection() {
               className="group bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-2xl p-7 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
             >
               <BorderTrail
-                className="bg-[hsl(var(--primary))] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                className="bg-[hsl(var(--primary))] opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:block"
                 size={120}
                 style={{
                   boxShadow: "0 0 20px 10px hsl(var(--primary)/0.3)",
