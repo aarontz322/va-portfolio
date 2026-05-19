@@ -3,23 +3,87 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { BorderTrail } from "@/components/ui/border-trail";
 
-const works = [
-  { category: "leads", platform: "Lead Generation", title: "LinkedIn Sales Navigator List", desc: "Targeted lead list built using LinkedIn Sales Navigator with name, role, company, email pattern, and LinkedIn URLs — ready for outreach." },
-  { category: "crm", platform: "Outreach · Instantly.ai", title: "Email Campaign — 76.9% Open Rate", desc: "2,600 contacts contacted. 1,021 opened. 98 replied. 50 opportunities generated for a B2B campaign." },
-  { category: "crm", platform: "CRM · GoHighLevel", title: "GHL Pipeline Setup & Cleanup", desc: "Full CRM organization including contact deduplication, pipeline stage setup, tagging, notes, and task assignment across client accounts." },
-  { category: "automation", platform: "Automation · Make.com", title: "Multi-Platform Automation Scenarios", desc: "Built automation workflows connecting Facebook/Instagram, Google Drive, Airtable, and HTTP modules — data moves where it needs to go, automatically." },
-  { category: "data", platform: "Data · Airtable", title: "Lead & Prospect Tracking Base", desc: "Airtable database built for tracking leads, statuses, notes, and outreach history — with custom views and filters for each team member." },
-  { category: "data", platform: "Data · Excel / Google Sheets", title: "Performance Dashboard & Reports", desc: "Sales performance charts, revenue tracking, and business metrics dashboards built in Excel — clean enough to hand straight to a client or manager." },
-  { category: "leads", platform: "Lead Generation · Apollo.io", title: "B2B Prospect Research", desc: "Scraped and verified 500+ decision-maker contacts across target industries using Apollo.io and ZoomInfo — validated email patterns included." },
-  { category: "crm", platform: "CRM · HubSpot", title: "HubSpot Contact Database Cleanup", desc: "Deduped and re-tagged 1,200+ contacts across a HubSpot instance — restored pipeline clarity and accurate stage tracking." },
+type Work = {
+  category: string;
+  platform: string;
+  title: string;
+  desc: string;
+  stats?: { value: string; label: string }[];
+};
+
+const works: Work[] = [
+  {
+    category: "leads",
+    platform: "Lead Generation · LinkedIn",
+    title: "LinkedIn Sales Navigator List",
+    desc: "Targeted lead list with name, role, company, email pattern, and LinkedIn URLs — ready for outreach.",
+    stats: [],
+  },
+  {
+    category: "crm",
+    platform: "Outreach · Instantly.ai",
+    title: "Email Campaign",
+    desc: "Full B2B outreach campaign — from list build to sequence execution and opportunity tracking.",
+    stats: [
+      { value: "76.9%", label: "Open Rate" },
+      { value: "2,600",  label: "Contacts" },
+      { value: "50",     label: "Opportunities" },
+    ],
+  },
+  {
+    category: "crm",
+    platform: "CRM · GoHighLevel",
+    title: "GHL Pipeline Setup & Cleanup",
+    desc: "Full CRM organization including deduplication, pipeline stage setup, tagging, notes, and task assignment.",
+    stats: [],
+  },
+  {
+    category: "automation",
+    platform: "Automation · Make.com",
+    title: "Multi-Platform Automation",
+    desc: "Workflows connecting Facebook/Instagram, Google Drive, Airtable, and HTTP modules — data moves automatically.",
+    stats: [],
+  },
+  {
+    category: "data",
+    platform: "Data · Airtable",
+    title: "Lead & Prospect Tracking Base",
+    desc: "Airtable database for tracking leads, statuses, notes, and outreach history — with custom views per team member.",
+    stats: [],
+  },
+  {
+    category: "data",
+    platform: "Data · Excel / Google Sheets",
+    title: "Performance Dashboard & Reports",
+    desc: "Sales performance charts, revenue tracking, and business metrics dashboards — clean enough to hand to a client.",
+    stats: [],
+  },
+  {
+    category: "leads",
+    platform: "Lead Generation · Apollo.io",
+    title: "B2B Prospect Research",
+    desc: "Scraped and verified decision-maker contacts across target industries using Apollo.io and ZoomInfo.",
+    stats: [
+      { value: "500+", label: "Verified Contacts" },
+    ],
+  },
+  {
+    category: "crm",
+    platform: "CRM · HubSpot",
+    title: "HubSpot Database Cleanup",
+    desc: "Deduped and re-tagged contacts across a HubSpot instance — restored pipeline clarity and accurate stage tracking.",
+    stats: [
+      { value: "1,200+", label: "Contacts Cleaned" },
+    ],
+  },
 ];
 
 const tabs = [
-  { key: "all", label: "All Work" },
-  { key: "leads", label: "Lead Generation" },
-  { key: "crm", label: "CRM & Outreach" },
+  { key: "all",        label: "All Work" },
+  { key: "leads",      label: "Lead Generation" },
+  { key: "crm",        label: "CRM & Outreach" },
   { key: "automation", label: "Automations" },
-  { key: "data", label: "Data & Sheets" },
+  { key: "data",       label: "Data & Sheets" },
 ];
 
 export function WorksSection() {
@@ -76,22 +140,39 @@ export function WorksSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
-                className="group relative bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                className="group relative bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col"
               >
                 <BorderTrail
                   className="bg-[hsl(var(--primary))] opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:block"
                   size={120}
-                  style={{
-                    boxShadow: "0 0 20px 10px hsl(var(--primary)/0.3)",
-                  }}
+                  style={{ boxShadow: "0 0 20px 10px hsl(var(--primary)/0.3)" }}
                 />
+
                 <div className="relative z-10 text-xs font-semibold text-[hsl(var(--primary))] uppercase tracking-widest mb-2">
                   {w.platform}
                 </div>
-                <h3 className="relative z-10 font-display font-bold text-base mb-2 group-hover:text-[hsl(var(--primary))] transition-colors">{w.title}</h3>
-                <p className="text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">
+                <h3 className="relative z-10 font-display font-bold text-base mb-2 group-hover:text-[hsl(var(--primary))] transition-colors">
+                  {w.title}
+                </h3>
+                <p className="relative z-10 text-sm text-[hsl(var(--muted-foreground))] leading-relaxed flex-1">
                   {w.desc}
                 </p>
+
+                {/* Metric stats — only shown when data exists */}
+                {w.stats && w.stats.length > 0 && (
+                  <div className="relative z-10 mt-5 pt-4 border-t border-[hsl(var(--border))] flex gap-5">
+                    {w.stats.map((s) => (
+                      <div key={s.label}>
+                        <div className="font-display text-xl font-extrabold text-[hsl(var(--primary))] leading-none">
+                          {s.value}
+                        </div>
+                        <div className="text-[10px] text-[hsl(var(--muted-foreground))] uppercase tracking-wider mt-0.5">
+                          {s.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </motion.div>
             ))}
           </AnimatePresence>
