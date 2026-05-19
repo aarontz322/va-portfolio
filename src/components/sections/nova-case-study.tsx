@@ -194,7 +194,7 @@ export function NovaCaseStudySection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: shouldReduce ? 0 : 0.55, delay: shouldReduce ? 0 : 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="relative border border-[hsl(var(--primary)/22%)] bg-[#08182b] p-5"
+          className="relative border border-[hsl(var(--primary)/40%)] bg-[#040e1a] p-5 shadow-[inset_0_0_60px_hsl(var(--primary)/4%)]"
         >
           <BorderTrail
             className="hidden bg-[hsl(var(--primary))] opacity-80 md:block"
@@ -208,7 +208,7 @@ export function NovaCaseStudySection() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-40px" }}
-            className="relative z-10 border border-[hsl(var(--primary)/18%)] bg-[#0b1f36]"
+            className="relative z-10 border border-[hsl(var(--primary)/28%)] bg-[#0d2240]"
           >
 
             {/* Panel header */}
@@ -243,17 +243,21 @@ export function NovaCaseStudySection() {
               variants={panelStagger}
               className="grid gap-3 p-4 sm:grid-cols-3"
             >
-              {commandCards.map((item) => (
+              {commandCards.map((item, i) => (
                 <motion.div
                   key={item.label}
                   variants={panelItem}
                   whileHover={shouldReduce ? {} : { y: -2, transition: { duration: 0.15 } }}
-                  className="group cursor-default border border-[hsl(var(--primary)/15%)] bg-white/[0.03] p-3 transition-colors duration-200 hover:border-[hsl(var(--primary)/40%)] hover:bg-white/[0.06]"
+                  className={`group cursor-default p-3 transition-colors duration-200 ${
+                    i === 0
+                      ? "border border-[hsl(var(--primary)/50%)] bg-[hsl(var(--primary)/8%)] shadow-[0_0_18px_hsl(var(--primary)/10%)] hover:border-[hsl(var(--primary)/80%)] hover:bg-[hsl(var(--primary)/14%)]"
+                      : "border border-[hsl(var(--primary)/15%)] bg-white/[0.03] hover:border-[hsl(var(--primary)/40%)] hover:bg-white/[0.06]"
+                  }`}
                 >
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-[hsl(var(--muted-foreground))]">
+                  <p className={`font-mono text-[10px] uppercase tracking-widest ${i === 0 ? "text-[hsl(var(--primary))]" : "text-[hsl(var(--muted-foreground))]"}`}>
                     {item.label}
                   </p>
-                  <p className="mt-2 text-sm font-semibold leading-snug transition-colors duration-200 group-hover:text-[hsl(var(--foreground))]">
+                  <p className={`mt-2 text-sm font-semibold leading-snug transition-colors duration-200 ${i === 0 ? "text-[hsl(var(--foreground))]" : "group-hover:text-[hsl(var(--foreground))]"}`}>
                     {item.value}
                   </p>
                 </motion.div>
