@@ -102,15 +102,8 @@ export function NovaCaseStudySection() {
             <div className="nova-logo-orbit">
               <div className="nova-logo-aura" />
 
-              {/* Radar rings — CSS animation (reliable looping) */}
-              <div className="nova-radar">
-                <div className="nova-radar-ring" />
-                <div className="nova-radar-ring" />
-                <div className="nova-radar-ring" />
-              </div>
-
               <Image
-                src="/nova/nova-logo-transparent.png"
+                src="/nova/nova-logo.png"
                 alt="NOVA CRM logo"
                 width={722}
                 height={213}
