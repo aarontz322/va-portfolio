@@ -103,7 +103,7 @@ export function NovaCaseStudySection() {
               <div className="nova-logo-aura" />
 
               <Image
-                src="/nova/nova-logo.png"
+                src="/nova/nova-logo-transparent.png"
                 alt="NOVA CRM logo"
                 width={722}
                 height={213}
