@@ -12,7 +12,7 @@ const items = [
 
 export function TransformSection() {
   return (
-    <section id="services" className="py-24 px-[5%] bg-gradient-to-b from-[hsl(var(--background))] to-[hsl(222_40%_7%)]">
+    <section className="py-24 px-[5%] bg-gradient-to-b from-[hsl(var(--background))] to-[hsl(222_40%_7%)]">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
