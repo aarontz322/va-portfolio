@@ -2,6 +2,7 @@ import { HeroSection } from "@/components/sections/hero";
 import { TransformSection } from "@/components/sections/transform";
 import { ServicesSection } from "@/components/sections/services";
 import { PricingSectionWrapper } from "@/components/sections/pricing-wrapper";
+import { NovaCaseStudySection } from "@/components/sections/nova-case-study";
 import { WorksSection } from "@/components/sections/works";
 import { CosmosGallery } from "@/components/sections/cosmos-gallery";
 import { TestimonialsSection } from "@/components/sections/testimonials";
@@ -18,6 +19,7 @@ export default function Home() {
       <TransformSection />
       <ServicesSection />
       <PricingSectionWrapper />
+      <NovaCaseStudySection />
       <WorksSection />
       <CosmosGallery />
       <TestimonialsSection />

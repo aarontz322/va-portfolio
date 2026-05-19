@@ -54,10 +54,10 @@ export function HeroSection() {
               Schedule a Discovery Call
             </ShinyButton>
             <a
-              href="#works"
+              href="#nova"
               className="px-8 py-3 rounded-lg border border-[hsl(var(--border))] text-sm font-medium text-[hsl(var(--foreground))] hover:bg-[hsl(var(--muted))] transition-colors"
             >
-              View My Work
+              View NOVA CRM
             </a>
           </motion.div>
 

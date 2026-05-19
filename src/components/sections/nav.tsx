@@ -8,7 +8,7 @@ export function Nav() {
         Aaron<span className="text-[hsl(var(--primary))]">.</span>Novicio
       </div>
       <ul className="hidden md:flex items-center gap-8 list-none">
-        {["Services", "Pricing", "Works", "About"].map((item) => (
+        {["Services", "Pricing", "Nova", "Works", "About"].map((item) => (
           <li key={item}>
             <a
               href={`#${item.toLowerCase()}`}
