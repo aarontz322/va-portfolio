@@ -58,3 +58,121 @@ body::before {
 ::-webkit-scrollbar-track { background: hsl(var(--background)); }
 ::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: hsl(var(--primary) / 0.4); }
+
+.nova-logo-orbit {
+  position: relative;
+  isolation: isolate;
+  animation:
+    nova-float 4.5s ease-in-out infinite,
+    nova-command-pulse 3.2s ease-in-out infinite;
+}
+
+.nova-logo-orbit::after {
+  content: none;
+}
+
+.nova-radar {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.nova-radar-ring {
+  grid-area: 1 / 1;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(37, 133, 255, 0.85);
+  animation: nova-radar-ring 3.5s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+}
+
+.nova-radar-ring:nth-child(2) { animation-delay: 1.17s; }
+.nova-radar-ring:nth-child(3) { animation-delay: 2.33s; }
+
+@keyframes nova-radar-ring {
+  0%   { transform: scale(1); opacity: 0.85; }
+  100% { transform: scale(8); opacity: 0; }
+}
+
+.nova-logo-aura {
+  position: absolute;
+  inset: 10% 3%;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 15% 46%, rgba(19, 117, 255, 0.42), transparent 32%),
+    radial-gradient(circle at 53% 48%, rgba(70, 156, 255, 0.22), transparent 42%),
+    radial-gradient(circle at 88% 54%, rgba(21, 111, 255, 0.2), transparent 30%);
+  filter: blur(24px);
+  opacity: 0.72;
+  animation: nova-aura-pulse 4.8s ease-in-out infinite;
+}
+
+.nova-logo-mark {
+  position: relative;
+  z-index: 1;
+  filter:
+    drop-shadow(0 0 10px rgba(38, 129, 255, 0.42))
+    drop-shadow(0 0 30px rgba(28, 111, 255, 0.34));
+  animation: nova-logo-glow 3.8s ease-in-out infinite;
+}
+
+@keyframes nova-command-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 16px rgba(37, 133, 255, 0.25),
+      0 0 48px rgba(37, 133, 255, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 36px rgba(37, 133, 255, 0.7),
+      0 0 80px rgba(37, 133, 255, 0.35),
+      0 0 130px rgba(37, 133, 255, 0.15);
+  }
+}
+
+@keyframes nova-float {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+@keyframes nova-aura-pulse {
+  0%, 100% {
+    opacity: 0.56;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes nova-logo-glow {
+  0%, 100% {
+    filter:
+      drop-shadow(0 0 9px rgba(38, 129, 255, 0.36))
+      drop-shadow(0 0 24px rgba(28, 111, 255, 0.25));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 16px rgba(66, 161, 255, 0.72))
+      drop-shadow(0 0 42px rgba(27, 115, 255, 0.48));
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .nova-logo-orbit,
+  .nova-logo-aura,
+  .nova-logo-mark,
+  .nova-logo-orbit::after,
+  .nova-radar-ring {
+    animation: none;
+  }
+}
