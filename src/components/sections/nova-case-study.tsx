@@ -74,12 +74,12 @@ export function NovaCaseStudySection() {
   return (
     <section
       id="nova"
-      className="relative overflow-hidden border-y border-[hsl(var(--primary)/18%)] bg-[#061121] px-[5%] py-24"
+      className="relative overflow-hidden border-y border-[hsl(var(--primary)/18%)] bg-[#061121] px-[5%] py-24 lg:px-[8%] lg:py-32"
     >
       {/* Grid background */}
       <div className="absolute inset-0 bg-[linear-gradient(90deg,hsl(var(--primary)/6%)_1px,transparent_1px),linear-gradient(hsl(var(--primary)/6%)_1px,transparent_1px)] bg-[size:72px_72px] opacity-60 pointer-events-none" />
 
-      <div className="relative mx-auto grid max-w-6xl grid-cols-1 gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20 lg:items-start">
 
         {/* ── LEFT COLUMN ─────────────────────────────────────────────────── */}
         <motion.div
