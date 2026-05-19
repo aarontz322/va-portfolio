@@ -83,7 +83,7 @@ export function ContactSection() {
 
         {/* Bottom bar */}
         <div className="relative z-10 border-t border-[hsl(var(--border))] px-[5%] py-5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-[hsl(var(--muted-foreground))]">
-          <span>© 2025 Aaron Novicio. All rights reserved.</span>
+          <span>© 2026 Aaron Novicio. All rights reserved.</span>
           <div className="flex items-center gap-6">
             <a
               href="mailto:eyronggwp@gmail.com"
@@ -92,7 +92,7 @@ export function ContactSection() {
               Email
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/mark-aaron-novicio/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[hsl(var(--primary))] transition-colors"
