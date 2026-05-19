@@ -31,7 +31,7 @@ const vaFaqs = [
 
 export function FAQSection() {
   return (
-    <section id="faq" className="bg-black">
+    <section id="faq" className="bg-[#061121]">
        {/* We wrap the monochrome FAQ to match your site's dark mode by default */}
        <FAQ1 items={vaFaqs} />
     </section>
