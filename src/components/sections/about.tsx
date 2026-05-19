@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { CheckCircle2 } from "lucide-react";
 import { ProfileCard } from "@/components/ui/profile-card";
 
 const highlights = [
@@ -27,8 +28,8 @@ const tools = [
 export function AboutSection() {
   return (
     <section id="about" className="py-24 px-[5%]">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-        
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+
         {/* Left - Profile Card */}
         <div className="lg:col-span-5 order-2 lg:order-1">
           <motion.div
@@ -37,7 +38,7 @@ export function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <ProfileCard 
+            <ProfileCard
               name="Aaron Novicio"
               role="Lead Gen, Outreach and Automation Specialist"
               email="eyronggwp@gmail.com"
@@ -67,32 +68,51 @@ export function AboutSection() {
             <div className="text-xs font-semibold text-[hsl(var(--primary))] uppercase tracking-widest mb-3">
               // About Me
             </div>
-            <h2 className="font-display font-bold text-3xl md:text-5xl tracking-[-0.03em] leading-[1.1] mb-8">
+            <h2 className="font-display font-bold text-3xl md:text-5xl tracking-[-0.03em] leading-[1.1] mb-6">
               Detail-focused.<br />
               Process-driven.<br />
               <span className="text-[hsl(var(--primary))]">Reliable.</span>
             </h2>
-            <div className="space-y-4 text-[hsl(var(--muted-foreground))] text-base font-light leading-relaxed max-w-xl">
+            <div className="space-y-3 text-[hsl(var(--muted-foreground))] text-base font-light leading-relaxed max-w-xl mb-8">
               <p>I help founders and teams keep their leads clean, their CRM in order, and their daily operations moving without the back-and-forth.</p>
               <p>My focus is simple: make sure nothing falls through the cracks. Clean lead data, organized CRMs, admin that actually gets done.</p>
             </div>
+
+            {/* Highlights — previously unused */}
+            <motion.ul
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 mb-10"
+            >
+              {highlights.map((h) => (
+                <li key={h} className="flex items-start gap-2.5 text-sm text-[hsl(var(--foreground))]">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[hsl(var(--primary))]" />
+                  {h}
+                </li>
+              ))}
+            </motion.ul>
           </motion.div>
 
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {/* Core Experience — now renders desc */}
             <div>
               <div className="text-xs font-semibold text-[hsl(var(--muted-foreground))] uppercase tracking-widest mb-4">
                 Core Experience
               </div>
-              <div className="space-y-3">
-                {experience.map((e, i) => (
+              <div className="space-y-4">
+                {experience.map((e) => (
                   <div key={e.company} className="relative pl-4 border-l border-[hsl(var(--border))]">
                     <div className="font-display font-bold text-sm">{e.company}</div>
                     <div className="text-[10px] text-[hsl(var(--primary))] uppercase tracking-wider mb-1">{e.role}</div>
+                    <p className="text-[11px] text-[hsl(var(--muted-foreground))] leading-relaxed">{e.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
 
+            {/* Top Skills */}
             <div>
               <div className="text-xs font-semibold text-[hsl(var(--muted-foreground))] uppercase tracking-widest mb-4">
                 Top Skills
