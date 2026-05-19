@@ -63,6 +63,8 @@ body::before {
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  background: transparent;
+  border-radius: 0;
   animation:
     nova-float 4.5s ease-in-out infinite,
     nova-command-pulse 3.2s ease-in-out infinite;

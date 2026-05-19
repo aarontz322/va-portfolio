@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion, useReducedMotion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ArrowUpRight, Github, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, ShieldCheck } from "lucide-react";
 import { BorderTrail } from "@/components/ui/border-trail";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
@@ -184,17 +184,6 @@ export function NovaCaseStudySection() {
             >
               View Live App
               <ArrowUpRight className="h-4 w-4" />
-            </motion.a>
-            <motion.a
-              href="https://github.com/aarontz322/nova"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="View NOVA CRM on GitHub"
-              whileHover={shouldReduce ? {} : { y: -1, transition: { duration: 0.15 } }}
-              className="inline-flex cursor-pointer items-center gap-2 border border-[hsl(var(--primary)/30%)] bg-transparent px-5 py-3 text-sm font-semibold text-[hsl(var(--foreground))] transition-colors duration-200 hover:border-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]"
-            >
-              <Github className="h-4 w-4" />
-              GitHub
             </motion.a>
           </motion.div>
         </motion.div>
