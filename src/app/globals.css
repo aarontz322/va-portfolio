@@ -112,8 +112,11 @@ body::before {
   position: relative;
   z-index: 1;
   filter:
-    drop-shadow(0 0 10px rgba(38, 129, 255, 0.42))
-    drop-shadow(0 0 30px rgba(28, 111, 255, 0.34));
+    brightness(1.18)
+    contrast(1.08)
+    drop-shadow(0 0 10px rgba(38, 129, 255, 0.55))
+    drop-shadow(0 0 30px rgba(28, 111, 255, 0.42))
+    drop-shadow(0 0 2px rgba(255, 255, 255, 0.15));
   animation: nova-logo-glow 3.8s ease-in-out infinite;
 }
 
@@ -154,13 +157,17 @@ body::before {
 @keyframes nova-logo-glow {
   0%, 100% {
     filter:
-      drop-shadow(0 0 9px rgba(38, 129, 255, 0.36))
-      drop-shadow(0 0 24px rgba(28, 111, 255, 0.25));
+      brightness(1.12) contrast(1.06)
+      drop-shadow(0 0 9px rgba(38, 129, 255, 0.48))
+      drop-shadow(0 0 24px rgba(28, 111, 255, 0.32))
+      drop-shadow(0 0 2px rgba(255, 255, 255, 0.10));
   }
   50% {
     filter:
-      drop-shadow(0 0 16px rgba(66, 161, 255, 0.72))
-      drop-shadow(0 0 42px rgba(27, 115, 255, 0.48));
+      brightness(1.26) contrast(1.10)
+      drop-shadow(0 0 18px rgba(66, 161, 255, 0.85))
+      drop-shadow(0 0 48px rgba(27, 115, 255, 0.55))
+      drop-shadow(0 0 4px rgba(255, 255, 255, 0.20));
   }
 }
 
