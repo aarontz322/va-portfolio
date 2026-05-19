@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { Mail, Phone, Globe } from "lucide-react";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { TextHoverEffect, FooterBackgroundGradient } from "@/components/ui/hover-footer";
 
@@ -49,20 +50,23 @@ export function ContactSection() {
 
             <div className="flex flex-wrap justify-center gap-8 pt-10 border-t border-[hsl(var(--border))]">
               {[
-                { icon: "✉", label: "eyronggwp@gmail.com" },
-                { icon: "📞", label: "+639-19-680-9431" },
-                { icon: "🌐", label: "Working Remotely · PH" },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="flex items-center gap-3 text-sm text-[hsl(var(--muted-foreground))]"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-[hsl(var(--primary)/10%)] border border-[hsl(var(--border))] flex items-center justify-center text-sm">
-                    {item.icon}
+                { icon: Mail,  label: "eyronggwp@gmail.com" },
+                { icon: Phone, label: "+639-19-680-9431" },
+                { icon: Globe, label: "Working Remotely · PH" },
+              ].map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={item.label}
+                    className="flex items-center gap-3 text-sm text-[hsl(var(--muted-foreground))]"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-[hsl(var(--primary)/10%)] border border-[hsl(var(--border))] flex items-center justify-center">
+                      <Icon className="h-4 w-4 text-[hsl(var(--primary))]" />
+                    </div>
+                    {item.label}
                   </div>
-                  {item.label}
-                </div>
-              ))}
+                );
+              })}
             </div>
           </motion.div>
         </div>
