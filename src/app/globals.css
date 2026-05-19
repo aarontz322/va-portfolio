@@ -62,13 +62,34 @@ body::before {
 .nova-logo-orbit {
   position: relative;
   isolation: isolate;
+  overflow: hidden;
   animation:
     nova-float 4.5s ease-in-out infinite,
     nova-command-pulse 3.2s ease-in-out infinite;
 }
 
 .nova-logo-orbit::after {
-  content: none;
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    108deg,
+    transparent 20%,
+    rgba(140, 190, 255, 0.13) 42%,
+    rgba(200, 230, 255, 0.30) 50%,
+    rgba(140, 190, 255, 0.13) 58%,
+    transparent 80%
+  );
+  transform: translateX(-110%);
+  animation: nova-signal-sweep 6s ease-in-out infinite;
+}
+
+@keyframes nova-signal-sweep {
+  0%   { transform: translateX(-110%); opacity: 1; }
+  45%  { transform: translateX(210%);  opacity: 1; }
+  46%  { opacity: 0; }
+  100% { transform: translateX(210%);  opacity: 0; }
 }
 
 
@@ -145,8 +166,11 @@ body::before {
 @media (prefers-reduced-motion: reduce) {
   .nova-logo-orbit,
   .nova-logo-aura,
-  .nova-logo-mark,
+  .nova-logo-mark {
+    animation: none;
+  }
   .nova-logo-orbit::after {
     animation: none;
+    opacity: 0;
   }
 }
