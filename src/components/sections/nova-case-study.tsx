@@ -14,15 +14,15 @@ const commandCards = [
   { label: "Accountability", value: "Reports and audit history make VA work easier to verify." },
 ];
 
-const features = [
-  "Dashboard",
-  "Lead database",
-  "Kanban pipeline",
-  "Reminders",
-  "Reports",
-  "Audit trail",
-  "Workspaces",
-  "Team roles",
+const features: { label: string; core?: boolean }[] = [
+  { label: "Dashboard",       core: true },
+  { label: "Lead database" },
+  { label: "Kanban pipeline", core: true },
+  { label: "Reminders" },
+  { label: "Reports",         core: true },
+  { label: "Audit trail",     core: true },
+  { label: "Workspaces" },
+  { label: "Team roles" },
 ];
 
 const hardeningNotes = [
@@ -276,14 +276,18 @@ export function NovaCaseStudySection() {
                   Product surface
                 </motion.p>
                 <motion.div variants={panelStagger} className="grid grid-cols-2 gap-2">
-                  {features.map((feature) => (
+                  {features.map(({ label, core }) => (
                     <motion.div
-                      key={feature}
+                      key={label}
                       variants={panelItem}
                       whileHover={shouldReduce ? {} : { x: 2, transition: { duration: 0.15 } }}
-                      className="cursor-default border border-[hsl(var(--primary)/14%)] bg-[#071426] px-3 py-2 text-xs text-[hsl(var(--foreground))] transition-colors duration-200 hover:border-[hsl(var(--primary)/35%)] hover:text-[hsl(var(--primary))]"
+                      className={`cursor-default px-3 py-2 text-xs transition-colors duration-200 ${
+                        core
+                          ? "border border-[hsl(var(--primary)/35%)] bg-[hsl(var(--primary)/8%)] text-[hsl(var(--primary))] hover:border-[hsl(var(--primary)/65%)] hover:bg-[hsl(var(--primary)/14%)]"
+                          : "border border-[hsl(var(--primary)/14%)] bg-[#071426] text-[hsl(var(--foreground))] hover:border-[hsl(var(--primary)/35%)] hover:text-[hsl(var(--primary))]"
+                      }`}
                     >
-                      {feature}
+                      {label}
                     </motion.div>
                   ))}
                 </motion.div>
@@ -320,9 +324,10 @@ export function NovaCaseStudySection() {
               ref={progressRef}
               className="border-t border-[hsl(var(--primary)/16%)] p-4"
             >
-              <div className="h-1.5 w-full bg-[#061121]">
+              {/* Track */}
+              <div className="relative h-2 w-full bg-[#061121]">
                 <motion.div
-                  className="h-1.5 bg-[hsl(var(--primary))]"
+                  className="relative h-2 bg-gradient-to-r from-[hsl(var(--primary)/70%)] to-[hsl(var(--primary))]"
                   initial={{ width: 0 }}
                   animate={{ width: progressInView ? "78%" : 0 }}
                   transition={{
@@ -330,12 +335,34 @@ export function NovaCaseStudySection() {
                     ease: [0.25, 0.46, 0.45, 0.94],
                     delay: 0.25,
                   }}
-                />
+                >
+                  {/* Percentage badge on tip */}
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: progressInView ? 1 : 0 }}
+                    transition={{ delay: shouldReduce ? 0 : 1.6, duration: 0.3 }}
+                    className="absolute -right-5 -top-5 font-mono text-[10px] font-bold text-[hsl(var(--primary))]"
+                  >
+                    78%
+                  </motion.span>
+                </motion.div>
               </div>
-              <div className="mt-3 flex flex-wrap justify-between gap-2 font-mono text-[10px] uppercase tracking-widest text-[hsl(var(--muted-foreground))]">
-                <span>Lead visibility</span>
-                <span>Follow-up discipline</span>
-                <span>Proof of work</span>
+
+              {/* Tick marks + labels */}
+              <div className="mt-4 grid grid-cols-3 text-center">
+                {[
+                  { label: "Lead Visibility",      sub: "Pipeline clarity" },
+                  { label: "Follow-up Discipline",  sub: "Task follow-through" },
+                  { label: "Proof of Work",         sub: "Audit accountability" },
+                ].map(({ label, sub }) => (
+                  <div key={label} className="flex flex-col items-center gap-1">
+                    <div className="h-2 w-px bg-[hsl(var(--primary)/30%)]" />
+                    <p className="font-mono text-[10px] font-semibold uppercase tracking-wider text-[hsl(var(--foreground))]">
+                      {label}
+                    </p>
+                    <p className="text-[9px] text-[hsl(var(--muted-foreground))]">{sub}</p>
+                  </div>
+                ))}
               </div>
             </motion.div>
 
