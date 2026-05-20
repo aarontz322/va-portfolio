@@ -15,12 +15,12 @@ const commandCards = [
 ];
 
 const features: { label: string; core?: boolean }[] = [
-  { label: "Dashboard",       core: true },
-  { label: "Lead database" },
-  { label: "Kanban pipeline", core: true },
+  { label: "Dashboard",  core: true },
+  { label: "Pipeline",   core: true },
   { label: "Reminders" },
-  { label: "Reports",         core: true },
-  { label: "Audit trail",     core: true },
+  { label: "Reports",    core: true },
+  { label: "Leads DB" },
+  { label: "Audit trail" },
   { label: "Workspaces" },
   { label: "Team roles" },
 ];
@@ -281,7 +281,7 @@ export function NovaCaseStudySection() {
                       key={label}
                       variants={panelItem}
                       whileHover={shouldReduce ? {} : { x: 2, transition: { duration: 0.15 } }}
-                      className={`cursor-default px-3 py-2 text-xs transition-colors duration-200 ${
+                      className={`cursor-default px-3 py-2 text-xs transition-colors duration-200 flex items-center h-9 ${
                         core
                           ? "border border-[hsl(var(--primary)/35%)] bg-[hsl(var(--primary)/8%)] text-[hsl(var(--primary))] hover:border-[hsl(var(--primary)/65%)] hover:bg-[hsl(var(--primary)/14%)]"
                           : "border border-[hsl(var(--primary)/14%)] bg-[#071426] text-[hsl(var(--foreground))] hover:border-[hsl(var(--primary)/35%)] hover:text-[hsl(var(--primary))]"
@@ -307,7 +307,7 @@ export function NovaCaseStudySection() {
                       key={note}
                       variants={panelItem}
                       whileHover={shouldReduce ? {} : { x: 3, transition: { duration: 0.15 } }}
-                      className="group cursor-default border-l-2 border-[hsl(var(--primary)/45%)] bg-white/[0.03] px-4 py-3 transition-all duration-200 hover:border-[hsl(var(--primary))] hover:bg-white/[0.06]"
+                      className="group cursor-default border-l-2 border-[hsl(var(--primary)/70%)] bg-white/[0.03] px-4 py-3 transition-all duration-200 hover:border-[hsl(var(--primary))] hover:bg-white/[0.08]"
                     >
                       <p className="text-xs leading-relaxed text-[hsl(var(--muted-foreground))] transition-colors duration-200 group-hover:text-[hsl(var(--foreground))]">
                         {note}
