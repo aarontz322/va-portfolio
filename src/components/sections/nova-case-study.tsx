@@ -15,13 +15,13 @@ const commandCards = [
 ];
 
 const features: { label: string; core?: boolean }[] = [
-  { label: "Dashboard",  core: true },
-  { label: "Pipeline",   core: true },
+  { label: "Dashboard",       core: true },
   { label: "Reminders" },
-  { label: "Reports",    core: true },
-  { label: "Leads DB" },
-  { label: "Audit trail" },
+  { label: "Kanban pipeline", core: true },
+  { label: "Lead database" },
+  { label: "Reports",         core: true },
   { label: "Workspaces" },
+  { label: "Audit trail",     core: true },
   { label: "Team roles" },
 ];
 
@@ -281,7 +281,7 @@ export function NovaCaseStudySection() {
                       key={label}
                       variants={panelItem}
                       whileHover={shouldReduce ? {} : { x: 2, transition: { duration: 0.15 } }}
-                      className={`cursor-default px-3 py-2 text-xs transition-colors duration-200 flex items-center h-9 ${
+                      className={`cursor-default px-3 py-2 text-[11px] leading-tight transition-colors duration-200 flex items-center h-9 ${
                         core
                           ? "border border-[hsl(var(--primary)/35%)] bg-[hsl(var(--primary)/8%)] text-[hsl(var(--primary))] hover:border-[hsl(var(--primary)/65%)] hover:bg-[hsl(var(--primary)/14%)]"
                           : "border border-[hsl(var(--primary)/14%)] bg-[#071426] text-[hsl(var(--foreground))] hover:border-[hsl(var(--primary)/35%)] hover:text-[hsl(var(--primary))]"
