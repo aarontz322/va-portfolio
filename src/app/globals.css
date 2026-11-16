@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Instrument+Serif&display=swap');
-
 @layer base {
   :root {
     --background: 222 47% 5%;
@@ -15,9 +13,17 @@
     --muted: 222 30% 12%;
     --muted-foreground: 215 20% 55%;
     --border: 213 40% 15%;
+    /* Deep navy band used by the NOVA and FAQ sections */
+    --surface-deep: 216 69% 8%;
+    /* Shapes: cards use rounded-2xl (1rem). Buttons, chips and inputs use
+       rounded-lg (this value). Circles are only for avatars, dots and icon rings. */
     --radius: 0.75rem;
-    --font-instrument-serif: 'Instrument Serif', serif;
   }
+}
+
+::selection {
+  background: hsl(var(--primary) / 0.35);
+  color: hsl(var(--foreground));
 }
 
 * {
@@ -62,51 +68,12 @@ body::before {
 .nova-logo-orbit {
   position: relative;
   isolation: isolate;
-  overflow: hidden;
   background: transparent;
-  border-radius: 0;
-  animation:
-    nova-float 4.5s ease-in-out infinite,
-    nova-command-pulse 3.2s ease-in-out infinite;
+  /* No box: nothing here draws a rectangle. Only the logo floats, and the
+     glow comes from the soft aura behind it and the logo's own drop shadow. */
+  animation: nova-float 4.5s ease-in-out infinite;
 }
 
-.nova-logo-orbit::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: linear-gradient(
-    108deg,
-    transparent 20%,
-    rgba(140, 190, 255, 0.13) 42%,
-    rgba(200, 230, 255, 0.30) 50%,
-    rgba(140, 190, 255, 0.13) 58%,
-    transparent 80%
-  );
-  transform: translateX(-110%);
-  animation: nova-signal-sweep 6s ease-in-out infinite;
-}
-
-@keyframes nova-signal-sweep {
-  0%   { transform: translateX(-110%); opacity: 1; }
-  45%  { transform: translateX(210%);  opacity: 1; }
-  46%  { opacity: 0; }
-  100% { transform: translateX(210%);  opacity: 0; }
-}
-
-
-.nova-logo-aura {
-  position: absolute;
-  inset: 10% 3%;
-  z-index: -1;
-  background:
-    radial-gradient(circle at 15% 46%, rgba(19, 117, 255, 0.42), transparent 32%),
-    radial-gradient(circle at 53% 48%, rgba(70, 156, 255, 0.22), transparent 42%),
-    radial-gradient(circle at 88% 54%, rgba(21, 111, 255, 0.2), transparent 30%);
-  filter: blur(24px);
-  opacity: 0.72;
-  animation: nova-aura-pulse 4.8s ease-in-out infinite;
-}
 
 .nova-logo-mark {
   position: relative;
@@ -120,37 +87,12 @@ body::before {
   animation: nova-logo-glow 3.8s ease-in-out infinite;
 }
 
-@keyframes nova-command-pulse {
-  0%, 100% {
-    box-shadow:
-      0 0 16px rgba(37, 133, 255, 0.25),
-      0 0 48px rgba(37, 133, 255, 0.1);
-  }
-  50% {
-    box-shadow:
-      0 0 36px rgba(37, 133, 255, 0.7),
-      0 0 80px rgba(37, 133, 255, 0.35),
-      0 0 130px rgba(37, 133, 255, 0.15);
-  }
-}
-
 @keyframes nova-float {
   0%, 100% {
     transform: translate3d(0, 0, 0);
   }
   50% {
     transform: translate3d(0, -14px, 0);
-  }
-}
-
-@keyframes nova-aura-pulse {
-  0%, 100% {
-    opacity: 0.56;
-    transform: scale(0.98);
-  }
-  50% {
-    opacity: 0.95;
-    transform: scale(1.05);
   }
 }
 
@@ -174,12 +116,42 @@ body::before {
 
 @media (prefers-reduced-motion: reduce) {
   .nova-logo-orbit,
-  .nova-logo-aura,
   .nova-logo-mark {
     animation: none;
   }
-  .nova-logo-orbit::after {
-    animation: none;
-    opacity: 0;
+}
+
+/* Keyboard focus: one visible outline for every link, button and filter */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 3px;
+}
+
+/* Respect the device's reduced-motion setting for all CSS animation */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Testimonial columns: slow upward loop, transform only. Pauses on hover. */
+@keyframes testimonial-scroll {
+  to { transform: translateY(-50%); }
+}
+.testimonial-scroll {
+  animation: testimonial-scroll linear infinite;
+  will-change: transform;
+}
+.testimonial-track:hover .testimonial-scroll {
+  animation-play-state: paused;
 }

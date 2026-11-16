@@ -1,6 +1,8 @@
 "use client";
-import React from "react";
-import { motion, Transition } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, Transition, useInView } from "framer-motion";
+import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
+import { MOTION } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 type BorderTrailProps = {
@@ -26,22 +28,30 @@ export function BorderTrail({
     ease: "linear",
   };
 
+  // The light only runs while its card is on screen.
+  const frameRef = useRef<HTMLDivElement>(null);
+  const onScreen = useInView(frameRef, { margin: "100px" });
+  const reduce = usePrefersReducedMotion();
+  if (reduce || !MOTION.borderLights) return null;
+
   return (
-    <div className="pointer-events-none absolute inset-0 rounded-[inherit] border border-transparent [mask-clip:padding-box,border-box] [mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]">
-      <motion.div
-        className={cn("absolute aspect-square bg-blue-400", className)}
-        style={{
-          width: size,
-          offsetPath: `rect(0 auto auto 0 round ${size}px)`,
-          ...style,
-        }}
-        animate={{ offsetDistance: ["0%", "100%"] }}
-        transition={{
-          ...(transition ?? BASE_TRANSITION),
-          delay: delay,
-        }}
-        onAnimationComplete={onAnimationComplete}
-      />
+    <div ref={frameRef} aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-[inherit] border border-transparent [mask-clip:padding-box,border-box] [mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]">
+      {onScreen && (
+        <motion.div
+          className={cn("absolute aspect-square bg-blue-400", className)}
+          style={{
+            width: size,
+            offsetPath: `rect(0 auto auto 0 round ${size}px)`,
+            ...style,
+          }}
+          animate={{ offsetDistance: ["0%", "100%"] }}
+          transition={{
+            ...(transition ?? BASE_TRANSITION),
+            delay: delay,
+          }}
+          onAnimationComplete={onAnimationComplete}
+        />
+      )}
     </div>
   );
 }

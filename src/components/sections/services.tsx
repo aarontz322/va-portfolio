@@ -7,10 +7,10 @@ import type { LucideIcon } from "lucide-react";
 const services: { icon: LucideIcon; title: string; desc: string; rate: string }[] = [
   { icon: Target,     title: "Lead Generation",         desc: "High-quality leads built to your niche and targeting rules. Every record includes name, role, email pattern, LinkedIn, website, and notes.",                                              rate: "Starting at $8/hr" },
   { icon: Database,   title: "CRM Management",           desc: "Close CRM, HubSpot, GoHighLevel, and Google Sheets. Deduping, tagging, pipeline updates, notes, tasks, and clean reporting.",                                                             rate: "Starting at $8/hr" },
-  { icon: Table,      title: "Data Entry & Spreadsheets",desc: "Fast, accurate data entry. Formatting, cleanup, validation, and tracking sheets — built on experience from Accenture and Pinnacle Logistics.",                                             rate: "Starting at $8/hr" },
+  { icon: Table,      title: "Data Entry & Spreadsheets",desc: "Fast, accurate data entry. Formatting, cleanup, validation, and tracking sheets. Built on experience from Accenture and Teleserv Asia Solutions.",                                             rate: "Starting at $8/hr" },
   { icon: Briefcase,  title: "Executive & Admin Support", desc: "Inbox management, scheduling, file organization, SOP follow-through, and recurring task execution. I keep the engine running.",                                                           rate: "Starting at $8/hr" },
-  { icon: HeartPulse, title: "Healthcare Admin Support",  desc: "EHR updates, patient record verification, and HIPAA-aware compliance admin work. Experience with Arizona Natural Health Center using MPN.",                                               rate: "Starting at $8/hr" },
-  { icon: Search,     title: "Competitor Research",       desc: "Industry trend analysis, competitor research, and market intel — pulled together into clear, useful reports you can act on.",                                                              rate: "Starting at $8/hr" },
+  { icon: HeartPulse, title: "Healthcare Admin Support",  desc: "EHR updates, patient record verification, and HIPAA-aware compliance admin work. Experience with Arizona Natural Health Center using MyPatientNow.",                                               rate: "Starting at $8/hr" },
+  { icon: Search,     title: "Competitor Research",       desc: "Industry trend analysis, competitor research, and market intel, pulled together into clear, useful reports you can act on.",                                                              rate: "Starting at $8/hr" },
 ];
 
 export function ServicesSection() {
@@ -24,9 +24,9 @@ export function ServicesSection() {
           transition={{ duration: 0.6 }}
           className="mb-14"
         >
-          <div className="text-xs font-semibold text-[hsl(var(--primary))] uppercase tracking-widest mb-3">// What I Do</div>
+          <div className="text-xs font-semibold text-[hsl(var(--primary))] uppercase tracking-widest mb-3">What I Do</div>
           <h2 className="font-display font-bold text-3xl md:text-5xl tracking-[-0.03em] mb-4">Services I offer as your VA</h2>
-          <p className="text-[hsl(var(--muted-foreground))] font-light">Six things I do well — so you can hand them off and stop thinking about them.</p>
+          <p className="text-[hsl(var(--muted-foreground))]">Six things you can hand off and stop thinking about.</p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((s, i) => {
@@ -38,14 +38,14 @@ export function ServicesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="group bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-2xl p-7 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
+                className="group bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-2xl p-7 hover:-translate-y-1 transition-[transform,box-shadow,border-color,background-color,color,opacity] duration-300 relative overflow-hidden"
               >
                 <BorderTrail
                   className="bg-[hsl(var(--primary))] opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:block"
                   size={120}
                   style={{ boxShadow: "0 0 20px 10px hsl(var(--primary)/0.3)" }}
                 />
-                <div className="relative z-10 w-11 h-11 rounded-xl bg-[hsl(var(--primary)/10%)] border border-[hsl(var(--primary)/20%)] flex items-center justify-center mb-5 shadow-[0_0_15px_hsl(var(--primary)/0.05)] group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.2)] transition-all">
+                <div className="relative z-10 w-11 h-11 rounded-lg bg-[hsl(var(--primary)/10%)] border border-[hsl(var(--primary)/20%)] flex items-center justify-center mb-5 shadow-[0_0_15px_hsl(var(--primary)/0.05)] group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.2)] transition-[transform,box-shadow,border-color,background-color,color,opacity]">
                   <Icon className="h-5 w-5 text-[hsl(var(--primary))]" />
                 </div>
                 <h3 className="relative z-10 font-display font-bold text-base mb-2 group-hover:text-[hsl(var(--primary))] transition-colors">{s.title}</h3>

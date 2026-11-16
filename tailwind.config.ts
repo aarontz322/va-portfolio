@@ -12,7 +12,6 @@ const config: Config = {
       fontFamily: {
         display: ["var(--font-syne)", "sans-serif"],
         body: ["var(--font-dm-sans)", "sans-serif"],
-        "instrument-serif": ["var(--font-instrument-serif)", "serif"],
       },
       colors: {
         background: "hsl(var(--background))",

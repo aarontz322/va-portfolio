@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { ShinyButton } from "@/components/ui/shiny-button";
 
-const links = ["Services", "Pricing", "Nova", "Works", "About", "Contact"];
+const links = ["Services", "Nova", "Works", "Pricing", "About", "Contact"];
 
 export function Nav() {
   const [open, setOpen] = useState(false);
@@ -24,7 +24,7 @@ export function Nav() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 px-[5%] h-16 flex items-center justify-between bg-[hsl(var(--background)/85%)] backdrop-blur-md border-b border-[hsl(var(--border))]">
+      <nav aria-label="Main" className="fixed top-0 left-0 right-0 z-50 px-[5%] h-16 flex items-center justify-between bg-[hsl(var(--background)/85%)] backdrop-blur-md border-b border-[hsl(var(--border))]">
         {/* Logo */}
         <div className="font-display font-bold text-lg tracking-[-0.02em]">
           Aaron<span className="text-[hsl(var(--primary))]">.</span>Novicio
@@ -47,17 +47,19 @@ export function Nav() {
         {/* Right side */}
         <div className="flex items-center gap-3">
           <ShinyButton
-            onClick={() => window.open("https://calendly.com/eyronggwp/30min", "_blank")}
+            href="https://calendly.com/eyronggwp/30min"
             className="text-[hsl(var(--foreground))] border border-[hsl(var(--border))]"
           >
-            Book a Call
+            Book a Free Call
           </ShinyButton>
 
           {/* Hamburger — mobile only */}
           <button
-            className="md:hidden flex items-center justify-center w-9 h-9 text-[hsl(var(--foreground))] hover:text-[hsl(var(--primary))] transition-colors"
+            className="md:hidden flex items-center justify-center w-11 h-11 text-[hsl(var(--foreground))] hover:text-[hsl(var(--primary))] transition-colors"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -82,6 +84,7 @@ export function Nav() {
             {/* Drawer */}
             <motion.div
               key="drawer"
+              id="mobile-menu"
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
@@ -102,13 +105,11 @@ export function Nav() {
                 ))}
                 <li className="pt-3">
                   <ShinyButton
-                    onClick={() => {
-                      setOpen(false);
-                      window.open("https://calendly.com/eyronggwp/30min", "_blank");
-                    }}
+                    href="https://calendly.com/eyronggwp/30min"
+                    onClick={() => setOpen(false)}
                     className="w-full justify-center text-[hsl(var(--foreground))] border border-[hsl(var(--primary)/50%)] bg-[hsl(var(--primary)/10%)]"
                   >
-                    Book a Call
+                    Book a Free Call
                   </ShinyButton>
                 </li>
               </ul>

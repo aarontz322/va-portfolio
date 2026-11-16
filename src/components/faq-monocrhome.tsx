@@ -32,7 +32,7 @@ const faqs = [
 
 const palettes = {
   dark: {
-    surface: "bg-[#061121] text-neutral-100",
+    surface: "bg-[hsl(var(--surface-deep))] text-neutral-100",
     panel: "bg-[#08182b]/60",
     border: "border-[hsl(var(--primary)/12%)]",
     heading: "text-white",
@@ -43,7 +43,7 @@ const palettes = {
     toggle: "border-[hsl(var(--primary)/25%)] text-white",
     toggleSurface: "bg-[hsl(var(--primary)/6%)]",
     glow: "rgba(59, 130, 246, 0.20)",
-    aurora: "radial-gradient(ellipse 50% 100% at 10% 0%, rgba(37, 133, 255, 0.08), transparent 65%), #061121",
+    aurora: "radial-gradient(ellipse 50% 100% at 10% 0%, rgba(37, 133, 255, 0.08), transparent 65%), hsl(var(--surface-deep))",
     shadow: "shadow-[0_36px_140px_-60px_rgba(4,14,26,0.95)]",
     overlay: "linear-gradient(130deg, rgba(37, 133, 255, 0.04) 0%, transparent 65%)",
   },
@@ -76,17 +76,8 @@ interface FAQ1Props {
 }
 
 function FAQ1({ items = faqs }: FAQ1Props) {
-  const getRootTheme = () => {
-    if (typeof document === "undefined") return "dark";
-    if (document.documentElement.classList.contains("dark")) return "dark";
-    if (document.documentElement.classList.contains("light")) return "light";
-    if (typeof window !== "undefined" && window.matchMedia) {
-      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-    return "light";
-  };
-
-  const [theme, setTheme] = useState(getRootTheme);
+  // The site has one (dark) theme. The old day/night toggle was removed.
+  const theme = "dark" as keyof typeof palettes;
   const [introReady, setIntroReady] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [hasEntered, setHasEntered] = useState(false);
@@ -233,45 +224,8 @@ function FAQ1({ items = faqs }: FAQ1Props) {
     return () => window.cancelAnimationFrame(frame);
   }, []);
 
-  useEffect(() => {
-    if (typeof document === "undefined") return;
+  const palette = useMemo(() => palettes[theme], [theme]);
 
-    const applyThemeFromRoot = () => setTheme(getRootTheme());
-
-    applyThemeFromRoot();
-
-    const observer = new MutationObserver(applyThemeFromRoot);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class", "data-theme"],
-    });
-
-    const handleStorage = (event: StorageEvent) => {
-      if (event.key === "bento-theme") applyThemeFromRoot();
-    };
-
-    window.addEventListener("storage", handleStorage);
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("storage", handleStorage);
-    };
-  }, []);
-
-  const palette = useMemo(() => palettes[theme as keyof typeof palettes], [theme]);
-
-  const toggleTheme = () => {
-    if (typeof document === "undefined") return;
-    const root = document.documentElement;
-    const next = root.classList.contains("dark") ? "light" : "dark";
-    root.classList.toggle("dark", next === "dark");
-    setTheme(next);
-    try {
-      window.localStorage?.setItem("bento-theme", next);
-    } catch (_err) {
-      /* ignore */
-    }
-  };
   const toggleQuestion = (index: number) => setActiveIndex((prev) => (prev === index ? -1 : index));
 
   useEffect(() => {
@@ -330,42 +284,21 @@ function FAQ1({ items = faqs }: FAQ1Props) {
         >
           <span className="faq1-intro__beam" aria-hidden="true" />
           <span className="faq1-intro__pulse" aria-hidden="true" />
-          <span className="faq1-intro__label">Support FAQ</span>
+          <span className="faq1-intro__label">FAQ</span>
           <span className="faq1-intro__meter" aria-hidden="true" />
           <span className="faq1-intro__tick" aria-hidden="true" />
         </div>
 
         <header className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div className="space-y-4">
-            <p className={`text-xs uppercase tracking-[0.35em] ${palette.muted}`}>Help Center</p>
-            <h1 className={`text-4xl font-semibold leading-tight md:text-5xl ${palette.heading} font-display tracking-tighter`}>
-              Clarity over complexity.
-            </h1>
-            <p className={`max-w-xl text-base ${palette.muted} font-light`}>
-              Everything you need to know about partnering with me to scale your operations.
+            <p className={`text-xs uppercase tracking-[0.35em] ${palette.muted}`}>FAQ</p>
+            <h2 className={`text-4xl font-semibold leading-tight md:text-5xl ${palette.heading} font-display tracking-tighter`}>
+              Questions founders ask before hiring.
+            </h2>
+            <p className={`max-w-xl text-base ${palette.muted}`}>
+              Short answers on hours, tools, trials and pricing.
             </p>
           </div>
-
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className={`relative inline-flex h-11 items-center gap-3 rounded-full border px-5 text-sm font-medium transition-colors duration-500 ${palette.toggleSurface} ${palette.toggle}`}
-            aria-pressed={theme === "dark" ? "true" : "false"}
-          >
-            <span className="relative flex h-6 w-6 items-center justify-center">
-              <span
-                className={`pointer-events-none absolute inset-0 rounded-full border opacity-40 ${
-                  theme === "dark" ? "border-white/30 animate-pulse" : "border-neutral-400/50"
-                }`}
-              />
-              <span
-                className={`h-3 w-3 rounded-full transition-all duration-500 ${
-                  theme === "dark" ? "bg-white" : "bg-neutral-900"
-                }`}
-              />
-            </span>
-            {theme === "dark" ? "Night" : "Day"} mode
-          </button>
         </header>
 
         <ul className="space-y-4">
@@ -377,7 +310,7 @@ function FAQ1({ items = faqs }: FAQ1Props) {
             return (
               <li
                 key={item.question}
-                className={`group relative overflow-hidden rounded-3xl border backdrop-blur-xl transition-all duration-500 hover:-translate-y-0.5 focus-within:-translate-y-0.5 ${palette.border} ${palette.panel} ${palette.shadow}`}
+                className={`group relative overflow-hidden rounded-2xl border backdrop-blur-xl transition-all duration-500 hover:-translate-y-0.5 focus-within:-translate-y-0.5 ${palette.border} ${palette.panel} ${palette.shadow}`}
                 onMouseMove={setCardGlow}
                 onMouseLeave={clearCardGlow}
               >
@@ -385,7 +318,7 @@ function FAQ1({ items = faqs }: FAQ1Props) {
                   className="bg-[hsl(var(--primary))] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   size={100}
                   style={{
-                    boxShadow: "0 0 20px 10px rgba(59, 130, 246, 0.25)",
+                    boxShadow: "0 0 20px 10px hsl(var(--primary)/0.25)",
                   }}
                 />
                 <div
@@ -403,7 +336,7 @@ function FAQ1({ items = faqs }: FAQ1Props) {
                   aria-controls={panelId}
                   aria-expanded={open}
                   onClick={() => toggleQuestion(index)}
-                  style={{ "--faq-outline": theme === "dark" ? "rgba(255,255,255,0.35)" : "rgba(17,17,17,0.25)" } as React.CSSProperties}
+                  style={{ "--faq-outline": "hsl(var(--primary))" } as React.CSSProperties}
                   className="relative flex w-full items-start gap-6 px-8 py-7 text-left transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--faq-outline)]"
                 >
                   <span
@@ -415,6 +348,7 @@ function FAQ1({ items = faqs }: FAQ1Props) {
                       } ${open ? "animate-ping" : ""}`}
                     />
                     <svg
+                      aria-hidden="true"
                       className={`relative h-5 w-5 transition-transform duration-500 ${palette.icon} ${open ? "rotate-45" : ""}`}
                       viewBox="0 0 24 24"
                       fill="none"
@@ -427,12 +361,12 @@ function FAQ1({ items = faqs }: FAQ1Props) {
 
                   <div className="flex flex-1 flex-col gap-4">
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-                      <h2 className={`text-lg font-medium leading-tight sm:text-xl ${palette.heading}`}>
+                      <h3 className={`text-lg font-medium leading-tight sm:text-xl ${palette.heading}`}>
                         {item.question}
-                      </h2>
+                      </h3>
                       {item.meta && (
                         <span
-                          className={`inline-flex w-fit items-center rounded-full border px-3 py-1 text-[10px] uppercase tracking-[0.35em] transition-opacity duration-300 sm:ml-auto ${palette.border} ${palette.muted}`}
+                          className={`inline-flex w-fit items-center rounded-lg border px-3 py-1 text-xs uppercase tracking-[0.35em] transition-opacity duration-300 sm:ml-auto ${palette.border} ${palette.muted}`}
                         >
                           {item.meta}
                         </span>
