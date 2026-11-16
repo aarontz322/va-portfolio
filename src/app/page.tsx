@@ -4,28 +4,31 @@ import { ServicesSection } from "@/components/sections/services";
 import { PricingSectionWrapper } from "@/components/sections/pricing-wrapper";
 import { NovaCaseStudySection } from "@/components/sections/nova-case-study";
 import { WorksSection } from "@/components/sections/works";
-import { CosmosGallery } from "@/components/sections/cosmos-gallery";
 import { TestimonialsSection } from "@/components/sections/testimonials";
 import { AboutSection } from "@/components/sections/about";
 import { FAQSection } from "@/components/sections/faq";
 import { ContactSection } from "@/components/sections/contact";
 import { Nav } from "@/components/sections/nav";
+import { MobileBookBar } from "@/components/ui/mobile-book-bar";
 
+// Order: who I am, what I fix, what I do, proof (NOVA, work, reviews), then price.
 export default function Home() {
   return (
-    <main className="relative z-10">
+    <>
       <Nav />
-      <HeroSection />
-      <TransformSection />
-      <ServicesSection />
-      <PricingSectionWrapper />
-      <NovaCaseStudySection />
-      <WorksSection />
-      <CosmosGallery />
-      <TestimonialsSection />
-      <AboutSection />
-      <FAQSection />
-      <ContactSection />
-    </main>
+      <main id="main" className="relative z-10">
+        <HeroSection />
+        <TransformSection />
+        <ServicesSection />
+        <NovaCaseStudySection />
+        <WorksSection />
+        <TestimonialsSection />
+        <PricingSectionWrapper />
+        <AboutSection />
+        <FAQSection />
+        <ContactSection />
+      </main>
+      <MobileBookBar />
+    </>
   );
 }

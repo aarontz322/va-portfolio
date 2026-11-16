@@ -9,7 +9,7 @@ import {
   Clock, 
   Globe,
 } from "lucide-react";
-import { FaFacebook, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import { SiUpwork } from "react-icons/si";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
@@ -40,7 +40,7 @@ export function ProfileCard({
   avatarSrc = "/avatar.png",
   skills = ["Lead Gen", "Outreach", "Automations", "Data"],
   status = "available",
-  email = "eyronggwp@gmail.com",
+  email = "aaronnoviciova@gmail.com",
   socialLinks = {
     facebook: "#",
     linkedin: "#",
@@ -93,7 +93,7 @@ export function ProfileCard({
       className="relative w-full max-w-md mx-auto"
     >
       {/* Background Decorative Elements */}
-      <div className="absolute -inset-1 rounded-[2rem] bg-gradient-to-r from-purple-600 via-cyan-500 to-blue-600 opacity-20 blur-2xl group-hover:opacity-40 transition duration-1000" />
+      <div className="absolute -inset-1 rounded-2xl bg-[hsl(var(--primary))] opacity-20 blur-2xl group-hover:opacity-40 transition duration-1000" />
       
       <div className="relative overflow-hidden">
         <motion.div
@@ -105,7 +105,7 @@ export function ProfileCard({
             ease: "linear",
             repeat: Infinity,
           }}
-          className="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 opacity-20 blur-3xl"
+          className="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-br from-[hsl(var(--primary))] to-[hsl(var(--primary)/40%)] opacity-20 blur-3xl"
         />
         <motion.div
           animate={{
@@ -116,14 +116,14 @@ export function ProfileCard({
             ease: "linear",
             repeat: Infinity,
           }}
-          className="absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-gradient-to-tr from-emerald-600 to-cyan-600 opacity-20 blur-3xl"
+          className="absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-gradient-to-tr from-[hsl(var(--primary))] to-[hsl(var(--primary)/40%)] opacity-20 blur-3xl"
         />
       </div>
 
-      <Card className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-gray-900/95 via-gray-900/98 to-black backdrop-blur-xl shadow-2xl transition-all duration-500 hover:shadow-[0_20px_70px_-15px_rgba(120,119,198,0.3)]">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 via-transparent to-cyan-600/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      <Card className="group relative overflow-hidden rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-2xl transition-[transform,box-shadow,border-color,background-color,color,opacity] duration-500 hover:shadow-[0_20px_70px_-15px_hsl(var(--primary)/0.3)]">
+        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary)/10%)] via-transparent to-[hsl(var(--primary)/6%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
         
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-[hsl(var(--primary))]" />
 
         <CardContent className="relative p-8 sm:p-10">
           <div className="mb-8 flex items-center justify-between">
@@ -142,13 +142,13 @@ export function ProfileCard({
               transition={{ type: "spring", stiffness: 300 }}
               className="relative"
             >
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 blur-md opacity-60" />
+              <div className="absolute inset-0 rounded-full bg-[hsl(var(--primary))] blur-md opacity-60" />
               <div className="relative h-24 w-24 overflow-hidden rounded-full border-2 border-white/20 shadow-xl">
                 <div className="relative h-full w-full bg-gray-800 flex items-center justify-center text-3xl">
                   {avatarSrc === "/avatar.png" ? "👨‍💻" : (
                      <Image
                      src={avatarSrc}
-                     alt={`${name} avatar`}
+                     alt={`Photo of ${name}`}
                      fill
                      sizes="96px"
                      className="object-cover"
@@ -160,11 +160,11 @@ export function ProfileCard({
             </motion.div>
 
             <div className="flex-1 text-center sm:text-left min-w-0">
-              <h1 className="mb-1 text-2xl sm:text-3xl font-bold tracking-[-0.02em] text-white font-display leading-tight">
+              <h3 className="mb-1 text-2xl sm:text-3xl font-bold tracking-[-0.02em] text-white font-display leading-tight">
                 {name}
-              </h1>
+              </h3>
               <p className="mb-4 text-sm sm:base font-semibold text-[hsl(var(--primary))] uppercase tracking-wider">{role}</p>
-              <p className="text-xs sm:text-sm text-gray-400 font-light leading-relaxed line-clamp-3 sm:line-clamp-none">{bio}</p>
+              <p className="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-3 sm:line-clamp-none">{bio}</p>
             </div>
           </div>
 
@@ -176,7 +176,7 @@ export function ProfileCard({
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="rounded-full bg-gradient-to-r from-purple-500/20 to-cyan-500/20 px-4 py-2 text-sm font-medium text-gray-200 backdrop-blur-sm border border-white/10 hover:border-purple-500/50 transition-all cursor-default"
+                className="rounded-lg bg-[hsl(var(--primary)/8%)] px-4 py-2 text-sm font-medium text-[hsl(var(--foreground))] border border-[hsl(var(--primary)/20%)] hover:border-[hsl(var(--primary)/50%)] transition-[transform,box-shadow,border-color,background-color,color,opacity] cursor-default"
               >
                 {skill}
               </motion.span>
@@ -191,13 +191,13 @@ export function ProfileCard({
               onHoverEnd={() => setHoveredButton(null)}
             >
               <Button
-                className="relative h-14 w-full overflow-hidden rounded-2xl bg-gradient-to-r from-purple-600 to-cyan-600 font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:from-purple-700 hover:to-cyan-700 border-none"
+                className="relative h-14 w-full overflow-hidden rounded-lg bg-[hsl(var(--primary))] font-semibold text-[hsl(var(--primary-foreground))] shadow-lg transition-[transform,box-shadow,border-color,background-color,color,opacity] hover:shadow-xl hover:bg-[hsl(var(--primary)/88%)] border-none"
                 asChild
               >
                 <a href={calendlyLink} target={calendlyLink.startsWith("http") ? "_blank" : "_self"} rel="noopener noreferrer">
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     <Briefcase className="h-5 w-5" />
-                    Hire Me
+                    Book a Free Call
                     <ArrowUpRight className="h-4 w-4" />
                   </span>
                 </a>
@@ -211,7 +211,7 @@ export function ProfileCard({
               <Button
                 onClick={handleCopy}
                 variant="outline"
-                className="h-14 w-full rounded-2xl border-white/20 bg-white/5 font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/30"
+                className="h-14 w-full rounded-lg border-white/20 bg-white/5 font-semibold text-white backdrop-blur-sm transition-[transform,box-shadow,border-color,background-color,color,opacity] hover:bg-white/10 hover:border-white/30"
               >
                 <Mail className="mr-2 h-5 w-5" />
                 {copied ? "Email Copied!" : "Copy Email"}
@@ -233,7 +233,7 @@ export function ProfileCard({
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="rounded-full bg-white/5 p-3 text-gray-400 backdrop-blur-sm transition-all hover:bg-white/10 hover:text-white"
+                className="rounded-full bg-white/5 p-3 text-gray-400 backdrop-blur-sm transition-[transform,box-shadow,border-color,background-color,color,opacity] hover:bg-white/10 hover:text-white"
                 aria-label={label}
               >
                 <Icon className="h-5 w-5" />
@@ -242,7 +242,7 @@ export function ProfileCard({
           </div>
 
           <motion.div
-            className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-br from-purple-600/20 to-pink-600/20 blur-3xl"
+            className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-br from-[hsl(var(--primary)/20%)] to-[hsl(var(--primary)/8%)] blur-3xl"
             animate={{
               scale: [1, 1.2, 1],
               opacity: [0.3, 0.5, 0.3],

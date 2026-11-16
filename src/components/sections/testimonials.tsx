@@ -4,6 +4,7 @@ import {
   TestimonialsColumn,
   testimonials,
 } from "@/components/ui/testimonials-columns";
+import { MOTION } from "@/lib/motion";
 
 const firstColumn = testimonials.slice(0, 3);
 const secondColumn = testimonials.slice(3, 5);
@@ -12,7 +13,7 @@ export function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="py-24 px-[5%] bg-gradient-to-b from-[hsl(var(--background))] to-[hsl(222_40%_7%)]"
+      className="py-24 px-[5%] bg-gradient-to-b from-[hsl(var(--background))] to-[hsl(var(--card))]"
     >
       <div className="max-w-6xl mx-auto">
         <motion.div
@@ -23,21 +24,28 @@ export function TestimonialsSection() {
           className="flex flex-col items-center text-center max-w-xl mx-auto mb-12"
         >
           <div className="text-xs font-semibold text-[hsl(var(--primary))] uppercase tracking-widest mb-3">
-            // Client Reviews
-          </div>
-          <div className="inline-flex items-center border border-[hsl(var(--border))] px-4 py-1 rounded-lg text-sm text-[hsl(var(--muted-foreground))] mb-4">
-            Testimonials
+            Client Reviews
           </div>
           <h2 className="font-display font-bold text-4xl md:text-5xl tracking-[-0.03em] mb-4">
             What clients say
           </h2>
-          <p className="text-[hsl(var(--muted-foreground))] font-light">
+          <p className="text-[hsl(var(--muted-foreground))]">
             Real feedback from founders and teams I've worked with directly.
           </p>
         </motion.div>
 
-        <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] max-h-[580px] overflow-hidden">
-          <TestimonialsColumn testimonials={firstColumn} duration={14} />
+        <div className={`flex justify-center gap-6 mt-10 ${MOTION.testimonialScroll ? "[mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] max-h-[580px] overflow-hidden motion-reduce:max-h-none motion-reduce:[mask-image:none]" : ""}`}>
+          {/* Phones: one column with all five reviews, in the original order */}
+          <TestimonialsColumn
+            testimonials={testimonials}
+            className="md:hidden"
+            duration={26}
+          />
+          <TestimonialsColumn
+            testimonials={firstColumn}
+            className="hidden md:block"
+            duration={14}
+          />
           <TestimonialsColumn
             testimonials={secondColumn}
             className="hidden md:block"

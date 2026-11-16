@@ -9,29 +9,29 @@ const vaFaqs = [
   },
   {
     question: "How do we manage tasks?",
-    answer: "I'm proficient in Trello, Asana, ClickUp, or even a simple shared Google Sheet. We'll choose the platform that best fits your current workflow to ensure smooth handovers.",
+    answer: "I work inside the task tool you already use, or a simple shared Google Sheet. We pick what fits your current workflow so handovers stay smooth.",
     meta: "Workflow"
   },
   {
     question: "Can we start with a trial period?",
-    answer: "Absolutely. I offer a 1-week paid trial period so we can see if our workflows and communication styles are a good match before committing to a longer retainer.",
+    answer: "Yes. I offer a 1-week paid trial period so we can see if our workflows and communication styles are a good match before committing to a longer retainer.",
     meta: "Process"
   },
   {
     question: "What industries do you specialize in?",
-    answer: "I have extensive experience working with B2B SaaS founders, Real Estate investors, and Marketing Agencies. My skills are transferable to almost any industry.",
+    answer: "I have worked with clients in healthcare, legal, logistics, tourism and ecommerce, plus B2B SaaS founders, real estate investors, marketing agencies and online coaches.",
     meta: "Specialty"
   },
   {
     question: "Do you offer custom packages?",
-    answer: "Yes! If none of my standard packages fit your specific needs, we can discuss a custom arrangement during our discovery call.",
+    answer: "Yes. If none of my standard packages fit your specific needs, we can discuss a custom arrangement during our discovery call.",
     meta: "Pricing"
   }
 ];
 
 export function FAQSection() {
   return (
-    <section id="faq" className="bg-[#061121]">
+    <section id="faq" className="bg-[hsl(var(--surface-deep))]">
        {/* We wrap the monochrome FAQ to match your site's dark mode by default */}
        <FAQ1 items={vaFaqs} />
     </section>

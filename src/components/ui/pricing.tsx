@@ -65,7 +65,7 @@ export function PricingSection({
           </p>
         )}
       </div>
-      <div className="mx-auto grid w-full max-w-4xl grid-cols-1 gap-4 md:grid-cols-3 mt-8">
+      <div className="mx-auto grid w-full max-w-4xl grid-cols-1 gap-5 md:grid-cols-3 mt-8 md:pt-3">
         {plans.map((plan) => (
           <PricingCard plan={plan} key={plan.name} frequency="monthly" />
         ))}
@@ -139,7 +139,9 @@ export function PricingCard({
       ref={containerRef}
       onMouseMove={handleMouseMove}
       className={cn(
-        "relative flex w-full flex-col rounded-lg border bg-background/70 backdrop-blur-md group overflow-hidden",
+        "relative flex w-full flex-col rounded-2xl border bg-background/70 backdrop-blur-md group overflow-hidden",
+        plan.highlighted &&
+          "border-primary/70 shadow-[0_18px_50px_-18px_hsl(var(--primary)/0.55)] md:-translate-y-3",
         className
       )}
       {...props}
@@ -147,7 +149,7 @@ export function PricingCard({
       <div
         className="pointer-events-none absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
         style={{
-          background: "radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(59, 130, 246, 0.1), transparent 80%)",
+          background: "radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), hsl(var(--primary) / 0.1), transparent 80%)",
         }}
       />
       {plan.highlighted ? (
@@ -163,26 +165,26 @@ export function PricingCard({
         <BorderTrail
           className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:block"
           style={{
-            boxShadow: "0 0 20px 10px rgba(59, 130, 246, 0.25)",
+            boxShadow: "0 0 20px 10px hsl(var(--primary) / 0.25)",
           }}
           size={80}
         />
       )}
       <div
         className={cn(
-          "bg-muted/20 rounded-t-lg border-b p-4",
-          plan.highlighted && "bg-muted/40"
+          "bg-muted/20 rounded-t-2xl border-b p-4",
+          plan.highlighted && "bg-primary/10 border-primary/30"
         )}
       >
         <div className="absolute top-2 right-2 z-10 flex items-center gap-2">
           {plan.highlighted && (
-            <p className="bg-background flex items-center gap-1 rounded-md border px-2 py-0.5 text-xs">
+            <p className="bg-primary text-primary-foreground flex items-center gap-1 rounded-lg px-2.5 py-1 text-xs font-semibold">
               <StarIcon className="h-3 w-3 fill-current" />
               Popular
             </p>
           )}
           {frequency === "yearly" && (
-            <p className="bg-primary text-primary-foreground flex items-center gap-1 rounded-md border px-2 py-0.5 text-xs">
+            <p className="bg-primary text-primary-foreground flex items-center gap-1 rounded-lg border px-2 py-0.5 text-xs">
               {Math.round(
                 ((plan.price.monthly * 12 - plan.price.yearly) /
                   plan.price.monthly /
@@ -194,16 +196,16 @@ export function PricingCard({
           )}
         </div>
 
-        <div className="text-lg font-medium font-display tracking-tighter">{plan.name}</div>
+        <h3 className="text-lg font-medium font-display tracking-tighter">{plan.name}</h3>
         <p className="text-muted-foreground text-base font-normal">{plan.info}</p>
-        <h3 className="mt-2 flex items-end gap-1">
+        <p className="mt-2 flex items-end gap-1">
           <span className="text-3xl font-bold font-display tracking-tighter">
             ${frequency === "monthly" ? plan.price.monthly : Math.round(plan.price.yearly / 12)}
           </span>
           <span className="text-muted-foreground">
             {plan.name !== "Free" ? "/month" : ""}
           </span>
-        </h3>
+        </p>
         {frequency === "yearly" && (
           <p className="text-muted-foreground text-xs mt-1">
             ${plan.price.yearly}/year billed annually
@@ -247,11 +249,11 @@ export function PricingCard({
         )}
       >
         <Button
-          className="w-full"
+          className="w-full min-h-11"
           variant={plan.highlighted ? "default" : "outline"}
           asChild
         >
-          <a href={plan.btn.href}>{plan.btn.text}</a>
+          <a href={plan.btn.href} target="_blank" rel="noopener noreferrer">{plan.btn.text}</a>
         </Button>
       </div>
     </div>

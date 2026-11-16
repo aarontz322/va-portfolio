@@ -1,6 +1,7 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 import { BorderTrail } from "@/components/ui/border-trail";
 
 type Work = {
@@ -9,26 +10,48 @@ type Work = {
   title: string;
   desc: string;
   stats?: { value: string; label: string }[];
+  /** Screenshot of the real work. Cards without one stay text only. */
+  image?: { src: string; alt: string };
 };
+
+// Screenshots that match no single card. Shown as a small row under the grid.
+const moreSamples = [
+  { src: "/works/Example1.webp", alt: "Outreach tracker sheet with firm, contact, email and reply columns" },
+  { src: "/works/Example2.webp", alt: "Tenant prospecting sheet with business type, distance and contact details" },
+  { src: "/works/Example3.webp", alt: "Hotel lead list with contact person, role and LinkedIn profile" },
+  { src: "/works/Lead list.webp", alt: "Lead export sheet with lead status, names and personalization lines" },
+  { src: "/works/instantly_2026-03-23 (2).webp", alt: "Instantly campaign chart showing contacted, opened, replied and opportunities" },
+];
+
+// Result cards exported from Instantly.ai for campaigns Aaron ran himself.
+// Alt text repeats only what each card shows.
+const campaignResults = [
+  { src: "/works/results/instantly-varsity-base-82.webp", alt: "Instantly result card, Varsity Base: 82 opportunities created, 2,755 contacts engaged, 7,065 emails sent" },
+  { src: "/works/results/instantly-gymnastics-45.webp", alt: "Instantly result card, gymnastics campaign: 45 opportunities created, 2,452 contacts engaged, 6,449 emails sent" },
+  { src: "/works/results/instantly-youth-sports-37.webp", alt: "Instantly result card, youth and sports club campaign: 37 opportunities created, 1,270 contacts engaged, 3,649 emails sent" },
+  { src: "/works/results/instantly-martial-arts-22.webp", alt: "Instantly result card, Varsity Base martial arts dojos campaign: 22 opportunities created, 837 contacts engaged, 2,443 emails sent" },
+  { src: "/works/results/instantly-golf-30k.webp", alt: "Instantly result card, golf courses campaign: 6 opportunities and 49 replies" },
+];
 
 const works: Work[] = [
   {
     category: "leads",
     platform: "Lead Generation · LinkedIn",
     title: "LinkedIn Sales Navigator List",
-    desc: "Targeted lead list with name, role, company, email pattern, and LinkedIn URLs — ready for outreach.",
+    desc: "Targeted lead list with name, role, company, email pattern, and LinkedIn URLs. Ready for outreach.",
     stats: [],
+    image: { src: "/works/Example.webp", alt: "Lead list spreadsheet with decision maker names, roles, emails and LinkedIn links" },
   },
   {
     category: "crm",
     platform: "Outreach · Instantly.ai",
     title: "Email Campaign",
-    desc: "Full B2B outreach campaign — from list build to sequence execution and opportunity tracking.",
+    desc: "Full B2B outreach campaign, from list build to sequence execution and opportunity tracking.",
     stats: [
       { value: "76.9%", label: "Open Rate" },
       { value: "2,600",  label: "Contacts" },
-      { value: "50",     label: "Opportunities" },
     ],
+    image: { src: "/works/Instantly.webp", alt: "Instantly campaign dashboard showing sent, open rate, reply rate and opportunities" },
   },
   {
     category: "crm",
@@ -36,26 +59,29 @@ const works: Work[] = [
     title: "GHL Pipeline Setup & Cleanup",
     desc: "Full CRM organization including deduplication, pipeline stage setup, tagging, notes, and task assignment.",
     stats: [],
+    image: { src: "/works/GHL Sample.webp", alt: "GoHighLevel contacts list with tags and last activity" },
   },
   {
     category: "automation",
     platform: "Automation · Make.com",
     title: "Multi-Platform Automation",
-    desc: "Workflows connecting Facebook/Instagram, Google Drive, Airtable, and HTTP modules — data moves automatically.",
+    desc: "Workflows connecting Facebook/Instagram, Google Drive, Airtable, and HTTP modules, so data moves automatically.",
     stats: [],
+    image: { src: "/works/Make Sample Automations.webp", alt: "Make.com scenario list with Facebook, Instagram, Airtable and Google Drive automations" },
   },
   {
     category: "data",
     platform: "Data · Airtable",
     title: "Lead & Prospect Tracking Base",
-    desc: "Airtable database for tracking leads, statuses, notes, and outreach history — with custom views per team member.",
+    desc: "Airtable database for tracking leads, statuses, notes, and outreach history, with custom views per team member.",
     stats: [],
+    image: { src: "/works/Airtable Auto.webp", alt: "Airtable base with status, post type, links and dates" },
   },
   {
     category: "data",
     platform: "Data · Excel / Google Sheets",
     title: "Performance Dashboard & Reports",
-    desc: "Sales performance charts, revenue tracking, and business metrics dashboards — clean enough to hand to a client.",
+    desc: "Sales performance charts, revenue tracking, and business metrics dashboards, clean enough to hand to a client.",
     stats: [],
   },
   {
@@ -66,14 +92,15 @@ const works: Work[] = [
     stats: [
       { value: "500+", label: "Verified Contacts" },
     ],
+    image: { src: "/works/Example4.webp", alt: "Prospect research sheet with executives, companies, sectors and contact details" },
   },
   {
     category: "crm",
     platform: "CRM · HubSpot",
     title: "HubSpot Database Cleanup",
-    desc: "Deduped and re-tagged contacts across a HubSpot instance — restored pipeline clarity and accurate stage tracking.",
+    desc: "Deduped and re-tagged contacts across a HubSpot instance. Restored pipeline clarity and accurate stage tracking.",
     stats: [
-      { value: "1,200+", label: "Contacts Cleaned" },
+      { value: "1,000+", label: "Contacts Cleaned" },
     ],
   },
 ];
@@ -102,12 +129,12 @@ export function WorksSection() {
           className="mb-12"
         >
           <div className="text-xs font-semibold text-[hsl(var(--primary))] uppercase tracking-widest mb-3">
-            // Portfolio
+            Portfolio
           </div>
           <h2 className="font-display font-bold text-3xl md:text-5xl tracking-[-0.03em] mb-4">
-            A glimpse of my work
+            Samples of my work
           </h2>
-          <p className="text-[hsl(var(--muted-foreground))] font-light">
+          <p className="text-[hsl(var(--muted-foreground))]">
             Real work from real clients. Filter by category.
           </p>
         </motion.div>
@@ -118,7 +145,8 @@ export function WorksSection() {
             <button
               key={tab.key}
               onClick={() => setActive(tab.key)}
-              className={`px-4 py-2 rounded-full text-xs font-medium border transition-all duration-200 ${
+              aria-pressed={active === tab.key}
+              className={`px-4 py-2 min-h-11 rounded-lg text-xs font-medium border transition-[transform,box-shadow,border-color,background-color,color,opacity] duration-200 ${
                 active === tab.key
                   ? "bg-[hsl(var(--primary)/10%)] border-[hsl(var(--primary))] text-[hsl(var(--primary))]"
                   : "bg-[hsl(var(--card))] border-[hsl(var(--border))] text-[hsl(var(--muted-foreground))] hover:border-[hsl(var(--primary)/40%)] hover:text-[hsl(var(--primary))]"
@@ -140,8 +168,19 @@ export function WorksSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
-                className="group relative bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col"
+                className="group relative bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-2xl p-6 hover:-translate-y-1 transition-[transform,box-shadow,border-color,background-color,color,opacity] duration-300 overflow-hidden flex flex-col"
               >
+                {w.image && (
+                  <div className="relative z-10 -mx-6 -mt-6 mb-5 aspect-[16/10] overflow-hidden border-b border-[hsl(var(--border))] bg-[hsl(var(--muted))]">
+                    <Image
+                      src={w.image.src}
+                      alt={w.image.alt}
+                      fill
+                      sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 370px"
+                      className="object-cover object-left-top"
+                    />
+                  </div>
+                )}
                 <BorderTrail
                   className="bg-[hsl(var(--primary))] opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:block"
                   size={120}
@@ -166,7 +205,7 @@ export function WorksSection() {
                         <div className="font-display text-xl font-extrabold text-[hsl(var(--primary))] leading-none">
                           {s.value}
                         </div>
-                        <div className="text-[10px] text-[hsl(var(--muted-foreground))] uppercase tracking-wider mt-0.5">
+                        <div className="text-xs text-[hsl(var(--muted-foreground))] uppercase tracking-wider mt-0.5">
                           {s.label}
                         </div>
                       </div>
@@ -177,6 +216,55 @@ export function WorksSection() {
             ))}
           </AnimatePresence>
         </div>
+
+        {/* Campaign result cards */}
+        <h3 className="font-display font-bold text-base mt-14 mb-2">Campaign results</h3>
+        <p className="text-sm text-[hsl(var(--muted-foreground))] mb-5 max-w-2xl">
+          Cold email campaigns I ran in Instantly.ai. Pipeline value is Instantly&apos;s own estimate, not closed revenue.
+        </p>
+        <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 list-none">
+          {campaignResults.map((r) => (
+            <li key={r.src}>
+              <a
+                href={r.src}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/result relative block aspect-[4/5] overflow-hidden rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--muted))] transition-colors hover:border-[hsl(var(--primary)/60%)]"
+              >
+                <Image
+                  src={r.src}
+                  alt={r.alt}
+                  fill
+                  sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 215px"
+                  className="object-cover transition-transform duration-300 group-hover/result:scale-105"
+                />
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* Extra screenshots */}
+        <h3 className="font-display font-bold text-base mt-14 mb-5">More samples</h3>
+        <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 list-none">
+          {moreSamples.map((s) => (
+            <li key={s.src}>
+              <a
+                href={encodeURI(s.src)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/sample relative block aspect-[16/10] overflow-hidden rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--muted))] transition-colors hover:border-[hsl(var(--primary)/60%)]"
+              >
+                <Image
+                  src={s.src}
+                  alt={s.alt}
+                  fill
+                  sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 215px"
+                  className="object-cover object-left-top transition-transform duration-300 group-hover/sample:scale-105"
+                />
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
