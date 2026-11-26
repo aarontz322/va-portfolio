@@ -44,3 +44,4 @@ document.getElementById('edit-request').addEventListener('click', () => {
   preview.hidden = true;
   form.querySelector('input[name="reason"]:checked').focus();
 });
+form.hidden = false;

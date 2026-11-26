@@ -58,6 +58,7 @@ document.getElementById("download-tour").addEventListener("click", () => {
   SiteFile.save("golden-hour-realty-tour-request.txt", "GOLDEN HOUR REALTY / TOUR REQUEST\n\n" + tourSummary.textContent + "\n\nDemo request prepared on this device.");
   tourStatus.textContent = "Your tour request is ready to save.";
 });
+tourForm.hidden = false;
 
 const film = document.getElementById("property-film");
 document.querySelector(".film-trigger").addEventListener("click", () => {

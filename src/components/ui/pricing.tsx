@@ -1,12 +1,6 @@
 "use client";
 import React from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import { CheckCircleIcon, StarIcon } from "lucide-react";
 import { motion, Transition } from "framer-motion";
@@ -219,26 +213,12 @@ export function PricingCard({
         )}
       >
         {plan.features.map((feature, index) => (
-          <div key={index} className="flex items-center gap-2">
-            <CheckCircleIcon className="text-foreground h-4 w-4 shrink-0" />
-            <TooltipProvider>
-              <Tooltip delayDuration={0}>
-                <TooltipTrigger asChild>
-                  <p
-                    className={cn(
-                      feature.tooltip && "cursor-pointer border-b border-dashed"
-                    )}
-                  >
-                    {feature.text}
-                  </p>
-                </TooltipTrigger>
-                {feature.tooltip && (
-                  <TooltipContent>
-                    <p>{feature.tooltip}</p>
-                  </TooltipContent>
-                )}
-              </Tooltip>
-            </TooltipProvider>
+          <div key={index} className="flex items-start gap-2">
+            <CheckCircleIcon className="mt-1 h-4 w-4 shrink-0 text-foreground" aria-hidden="true" />
+            <div>
+              <p>{feature.text}</p>
+              {feature.tooltip && <p className="mt-0.5 text-sm leading-snug">{feature.tooltip}</p>}
+            </div>
           </div>
         ))}
       </div>

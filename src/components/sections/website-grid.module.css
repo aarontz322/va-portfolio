@@ -1,0 +1,59 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.7rem, 4vw, 3.2rem) clamp(.8rem, 2vw, 1.6rem);
+}
+.slot { position: relative; min-width: 0; }
+.card { display: block; color: inherit; text-decoration: none; transform-origin: 50% 45%; }
+.image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: .45rem;
+}
+.image img { object-fit: cover; object-position: left top; }
+.caption { padding-top: .8rem; }
+.title { display: flex; align-items: baseline; justify-content: space-between; gap: .4rem; }
+.title h3 { font: 700 clamp(1.03rem, 1.65vw, 1.42rem)/1.2 var(--font-syne), sans-serif; letter-spacing: -.035em; }
+.title svg { flex: none; align-self: flex-start; margin-top: .15em; color: hsl(var(--primary)); }
+.industry { color: #b5c2d3; margin-top: .3rem; font-size: .85rem; }
+.description { color: #b5c2d3; margin-top: .6rem; font-size: .91rem; line-height: 1.5; }
+.card:focus-visible { outline: 2px solid hsl(var(--primary)); outline-offset: 5px; }
+.card:is(:hover, :focus-visible) h3 { color: hsl(var(--primary)); }
+@media (max-width: 899px) { .grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (min-width: 360px) and (max-width: 600px) {
+  .title h3 { font-size: 1rem; }
+  .description { display: none; }
+  .industry { font-size: .75rem; }
+  .caption { padding-top: .55rem; }
+}
+@media (max-width: 359px) { .grid { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: no-preference) {
+  .grid[data-motion-ready] .slot {
+    --progress: var(--row-progress, 1);
+    --t: clamp(0, calc((var(--progress) - var(--stagger, 0)) * 1.3), 1);
+    --remaining: calc(1 - var(--t));
+    /* The source uses cubic ease-out, a 1.4x starting size and 16 degrees of tilt. */
+    --k: calc(var(--remaining) * var(--remaining) * var(--remaining));
+  }
+  :global([data-helix-landing]) .grid[data-motion-ready] [data-landing-row] { --progress: var(--helix-landing, 1); }
+  .grid[data-motion-ready] .slot[data-origin="above"] {
+    /* The center slot is already on screen. Reveal it as the sides clear the viewport edges. */
+    --reveal: clamp(0, calc((var(--t) - .15) / .48), 1);
+    --entry-opacity: calc(var(--reveal) * var(--reveal) * (3 - 2 * var(--reveal)));
+  }
+  .grid[data-motion-ready] .card {
+    transform: translate3d(calc(var(--from-x, 0px) * var(--k)), calc(var(--from-y, 0px) * var(--k) - 24px * var(--leaving, 0)), 0)
+      perspective(1250px) rotateX(calc(16deg * var(--k))) scale(calc(1 + .4 * var(--k) - .025 * var(--leaving, 0)));
+    opacity: clamp(0, var(--entry-opacity, calc((1 - var(--k)) * 3)), calc(1 - .6 * var(--leaving, 0)));
+  }
+  .grid[data-motion-ready] .image img { filter: blur(calc(7px * var(--k))); }
+  .grid[data-motion-ready] .caption { opacity: clamp(0, calc((.24 - var(--k)) * 4.2), 1); }
+  .grid .card:focus-visible, .grid .card:focus-visible .caption, .grid .card:focus-visible .image img {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}

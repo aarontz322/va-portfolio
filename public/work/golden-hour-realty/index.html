@@ -14,9 +14,13 @@
   <script src="/work/golden-hour-realty/base.js" defer></script>
   <script src="/work/golden-hour-realty/agency.js" defer></script>
   <script src="/work/golden-hour-realty/home.js" defer></script>
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://portfolio.kotsaaron.com/work/golden-hour-realty">
+<link rel="stylesheet" href="/work/demo-context.css">
 </head>
 <body id="top" class="agency-home">
   <a class="skip" href="#main">Skip to content</a>
+  <aside class="demo-context" aria-label="About this project"><a href="/portfolio">← Aaron’s gallery</a><span>Fictional real estate agency</span></aside>
 <header class="agency-header">
   <div class="wrap agency-bar">
     <a class="agency-brand" href="/work/golden-hour-realty" aria-label="Golden Hour Realty home"><img class="brand-logo" src="/work/golden-hour-realty/assets/golden-hour-realty.png" width="520" height="277" alt="Golden Hour Realty"></a>
@@ -26,7 +30,7 @@
         <a href="/work/golden-hour-realty/showing-guide.html">Buyer guide</a>
     </nav>
     <div class="head-actions">
-      <a class="nav-tour" href="#tour">Plan a tour</a>
+      <a class="nav-tour" href="#tour">Tour planner</a>
       <details class="mobile-menu">
         <summary>Menu</summary>
         <nav aria-label="Mobile navigation">
@@ -61,7 +65,7 @@
         <p class="lead">Walk through the open-plan living room and island kitchen, then join the agent on the balcony for the last light of the day.</p>
         <p class="film-facts">4 bedrooms <span>·</span> 3 baths <span>·</span> 22-second tour</p>
         <div class="actions">
-          <a class="btn" href="/work/golden-hour-realty?home=glass-house#tour" id="view-glass-house">Plan a private viewing</a>
+          <a class="btn" href="/work/golden-hour-realty?home=glass-house#tour" id="view-glass-house">Draft a tour request</a>
           <a class="detail-link" href="/work/golden-hour-realty/glass-house.html#gallery">See the photo gallery</a>
         </div>
         <details class="film-transcript">
@@ -142,7 +146,8 @@
         <p class="lead">Pick a home and a preferred visit window. You can save the request together with anything you want to ask at the showing.</p>
       </div>
       <div class="tour-panel">
-        <form id="tour-form" class="form-grid">
+        <noscript><p>The tour planner runs in your browser. <a href="/work/golden-hour-realty/showing-guide.html">Read the showing guide</a> or enable JavaScript to draft a request.</p></noscript>
+        <form id="tour-form" class="form-grid" method="dialog" hidden>
           <label class="field full">Which home?
             <select id="tour-home" name="home">
                 <option value="maple-porch-bungalow">Maple Porch Bungalow</option>

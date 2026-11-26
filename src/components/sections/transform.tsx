@@ -7,8 +7,6 @@ const items = [
   { from: "You spend hours building lead lists, and the data is incomplete or wrong.", to: "You get a verified, outreach-ready list with every field you need." },
   { from: "Your CRM is full of duplicates, missing notes, and outdated contacts.", to: "Your CRM is clean, tagged, and easy to navigate in minutes." },
   { from: "Admin tasks pile up and you keep switching tabs all day.", to: "Your inbox, calendar, and tasks stay on track so nothing slips." },
-  { from: "You need someone reliable, not someone you have to chase.", to: "You get clear daily updates and on-time delivery, every time." },
-  { from: "You've been burned by freelancers who delivered inaccurate data.", to: "Every record is checked before it reaches you." },
 ];
 
 export function TransformSection() {
@@ -29,7 +27,7 @@ export function TransformSection() {
             I fix the gaps that slow you down.
           </h2>
           <p className="text-[hsl(var(--muted-foreground))] text-base">
-            Every founder hits the same walls. Here's where I come in.
+            For Pinnacle Logistics, I verified 150 to 200 leads a week. Here’s how I handle the work behind a list like that.
           </p>
         </motion.div>
 

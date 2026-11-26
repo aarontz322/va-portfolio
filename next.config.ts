@@ -1,17 +1,24 @@
 import type { NextConfig } from "next";
+import { SITE_ORIGIN } from "./src/lib/site-url";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    // Enable on the public deployment once the new domain is serving over HTTPS.
+    if (process.env.ENABLE_LEGACY_PORTFOLIO_REDIRECT !== "1") return [];
+    return [{
+      source: "/:path*",
+      has: [{ type: "host", value: "aaron-va\\.vercel\\.app" }],
+      destination: `${SITE_ORIGIN}/:path*`,
+      permanent: true,
+    }];
+  },
   async rewrites() {
     return [
-      { source: "/work/slatewell-roofing", destination: "/work/slatewell-roofing/index.html" },
-      { source: "/work/verane", destination: "/work/verane/index.html" },
-      { source: "/work/golden-hour-realty", destination: "/work/golden-hour-realty/index.html" },
-      { source: "/work/sivrenne", destination: "/work/sivrenne/index.html" },
-      { source: "/work/amberlune", destination: "/work/amberlune/index.html" },
-      { source: "/work/voltloop", destination: "/work/voltloop/index.html" },
-      { source: "/work/isolara", destination: "/work/isolara/index.html" },
-      { source: "/work/quiet-harbor-therapy", destination: "/work/quiet-harbor-therapy/index.html" },
-      { source: "/work/corvane-precision", destination: "/work/corvane-precision/index.html" },
+      { source: "/work/:slug", destination: "/work/:slug/index.html" },
+      {
+        source: "/work/equilibrium-debt-recovery/:page((?:[a-z0-9-]+/)*[a-z0-9-]+)",
+        destination: "/work/equilibrium-debt-recovery/:page/index.html",
+      },
     ];
   },
   images: {

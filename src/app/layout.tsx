@@ -4,6 +4,7 @@ import "./globals.css";
 import { CursorCanvas } from "@/components/ui/cursor-canvas";
 import { Providers } from "@/components/providers";
 import { CrashGuard } from "@/components/ui/crash-guard";
+import { pageMetadata, SITE_ORIGIN } from "@/lib/site-url";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -19,38 +20,15 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const SITE_URL = "https://aaron-va.vercel.app";
-const TITLE = "Aaron Novicio — VA for Leads, CRM & Operations";
-const DESCRIPTION =
-  "Virtual Assistant specializing in lead generation, CRM management, and admin support for founders and growing teams.";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: "/" },
-  openGraph: {
-    type: "website",
-    url: "/",
-    siteName: "Aaron Novicio",
-    title: TITLE,
-    description: DESCRIPTION,
-    locale: "en_US",
-    images: [
-      {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-        alt: "Aaron Novicio, Virtual Assistant for Leads, CRM & Operations",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: TITLE,
-    description: DESCRIPTION,
-    images: ["/og.png"],
-  },
+  metadataBase: new URL(SITE_ORIGIN),
+  ...pageMetadata({
+    path: "/",
+    title: "Aaron Novicio | Lead Generation, CRM & Operations",
+    description: "I build lead lists, manage outreach and keep CRMs organized. Explore my client work, the NOVA CRM I built, and my website design portfolio.",
+    image: "/og.png",
+    imageAlt: "Aaron Novicio, virtual assistant for leads, CRM and operations",
+  }),
 };
 
 const personJsonLd = {
@@ -58,7 +36,7 @@ const personJsonLd = {
   "@type": "Person",
   name: "Aaron Novicio",
   jobTitle: "Virtual Assistant",
-  url: SITE_URL,
+  url: SITE_ORIGIN,
   sameAs: [
     "https://www.linkedin.com/in/mark-aaron-novicio/",
     "https://www.upwork.com/freelancers/markaaronnovicio",

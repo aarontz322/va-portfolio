@@ -40,6 +40,7 @@ export const TestimonialsColumn = (props: {
   className?: string;
   testimonials: typeof testimonials;
   duration?: number;
+  paused?: boolean;
 }) => {
   // With reduced motion: no scrolling and no duplicate copy.
   const reduce = usePrefersReducedMotion() || !MOTION.testimonialScroll;
@@ -48,7 +49,10 @@ export const TestimonialsColumn = (props: {
       {/* CSS scroll (transform only). It pauses while the mouse is over the column. */}
       <div
         className={`flex flex-col gap-6 pb-6 ${reduce ? "" : "testimonial-scroll"}`}
-        style={reduce ? undefined : { animationDuration: `${props.duration || 10}s` }}
+        style={reduce ? undefined : {
+          animationDuration: `${props.duration || 10}s`,
+          animationPlayState: props.paused ? "paused" : undefined,
+        }}
       >
         {[...new Array(reduce ? 1 : 2).fill(0).map((_, index) => (
           <React.Fragment key={index}>

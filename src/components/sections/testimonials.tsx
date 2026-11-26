@@ -1,5 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { Pause, Play } from "lucide-react";
 import {
   TestimonialsColumn,
   testimonials,
@@ -10,6 +12,7 @@ const firstColumn = testimonials.slice(0, 3);
 const secondColumn = testimonials.slice(3, 5);
 
 export function TestimonialsSection() {
+  const [paused, setPaused] = useState(false);
   return (
     <section
       id="testimonials"
@@ -34,22 +37,34 @@ export function TestimonialsSection() {
           </p>
         </motion.div>
 
-        <div className={`flex justify-center gap-6 mt-10 ${MOTION.testimonialScroll ? "[mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] max-h-[580px] overflow-hidden motion-reduce:max-h-none motion-reduce:[mask-image:none]" : ""}`}>
+        {MOTION.testimonialScroll && (
+          <div className="mb-4 flex justify-center motion-reduce:hidden">
+            <button type="button" aria-controls="client-reviews" onClick={() => setPaused(value => !value)}
+              className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-[hsl(var(--border))] px-4 text-sm font-medium hover:border-[hsl(var(--primary))]">
+              {paused ? <Play size={15} aria-hidden="true" /> : <Pause size={15} aria-hidden="true" />}
+              {paused ? "Resume reviews" : "Pause reviews"}
+            </button>
+          </div>
+        )}
+        <div id="client-reviews" className={`flex justify-center gap-6 ${MOTION.testimonialScroll ? "[mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] max-h-[580px] overflow-hidden motion-reduce:max-h-none motion-reduce:[mask-image:none]" : ""}`}>
           {/* Phones: one column with all five reviews, in the original order */}
           <TestimonialsColumn
             testimonials={testimonials}
             className="md:hidden"
             duration={26}
+            paused={paused}
           />
           <TestimonialsColumn
             testimonials={firstColumn}
             className="hidden md:block"
             duration={14}
+            paused={paused}
           />
           <TestimonialsColumn
             testimonials={secondColumn}
             className="hidden md:block"
             duration={18}
+            paused={paused}
           />
         </div>
       </div>

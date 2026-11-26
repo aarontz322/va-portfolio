@@ -1,14 +1,8 @@
 import type { MetadataRoute } from "next";
-import { portfolioProjects } from "@/lib/portfolio-projects";
+import { industries } from "@/lib/portfolio-projects";
+import { siteUrl } from "@/lib/site-url";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: "https://aaron-va.vercel.app/",
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-    { url: "https://aaron-va.vercel.app/portfolio" },
-    ...portfolioProjects.map(({ slug }) => ({ url: `https://aaron-va.vercel.app/work/${slug}` })),
-  ];
+  const paths = ["/", "/portfolio", "/nova", ...Object.keys(industries).map(key => "/portfolio/" + key)];
+  return paths.map(path => ({ url: siteUrl(path) }));
 }

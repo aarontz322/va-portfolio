@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Nav } from "@/components/sections/nav";
 import { industries, portfolioProjects, type Industry } from "@/lib/portfolio-projects";
+import { pageMetadata } from "@/lib/site-url";
 
 type PageProps = { params: Promise<{ industry?: string[] }> };
 
@@ -22,50 +23,58 @@ function selectedIndustry(parts?: string[]): Industry | undefined {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const active = selectedIndustry((await params).industry);
-  const title = active ? `${industries[active]} portfolio | Aaron Novicio` : "Creative portfolio | Aaron Novicio";
-  const description = "Explore Aaron Novicio’s websites and campaign films by industry. Open each fictional brand’s live demo.";
-  const path = active ? "/portfolio/" + active : "/portfolio";
-  return {
-    title,
-    description,
-    alternates: { canonical: path },
-    openGraph: { title, description, url: path, type: "website" },
-  };
+  const projects = portfolioProjects.filter(project => project.industry === active);
+  const cover = projects[0];
+  const title = active ? `${industries[active]} website projects | Aaron Novicio` : "Website portfolio | Aaron Novicio";
+  let description = "Browse websites and redesign concepts by Aaron Novicio. Open the demos to explore storefronts, service websites and campaign films.";
+  if (active && cover) {
+    description = projects.length === 1 ? `${cover.title}. ${cover.desc}` : `Explore Aaron Novicio’s ${industries[active].toLowerCase()} website projects, including ${cover.title}. Open a live demo to try each design.`;
+  }
+  return pageMetadata({
+    title, description, path: active ? "/portfolio/" + active : "/portfolio",
+    image: cover ? `/works/${cover.slug}.webp` : "/website-portfolio.jpg",
+    imageAlt: cover ? cover.alt : "Three website projects by Aaron Novicio, Slatewell Roofing, VERANE and CORVANE PRECISION",
+  });
 }
 
 export default async function PortfolioPage({ params }: PageProps) {
   const active = selectedIndustry((await params).industry);
   const projects = portfolioProjects.filter((project) => !active || project.industry === active);
   const filters = [["", "All industries"], ...Object.entries(industries)];
+  const filterLinks = filters.map(([key, label]) => {
+    const current = key === (active ?? "");
+    return <Link
+      key={label}
+      href={key ? "/portfolio/" + key : "/portfolio"}
+      aria-current={current ? "page" : undefined}
+      className={`inline-flex min-h-11 items-center rounded-lg border px-4 text-sm font-medium transition-colors ${current
+        ? "border-[hsl(var(--primary))] bg-[hsl(var(--primary)/12%)] text-[hsl(var(--primary))]"
+        : "border-[hsl(var(--border))] bg-[hsl(var(--card))] hover:border-[hsl(var(--primary))]"}`}
+    >{label}</Link>;
+  });
 
   return (
     <>
       <Nav />
       <main id="main" className="relative z-10 mx-auto max-w-6xl px-[5%] pb-20 pt-28 lg:px-8 lg:pt-32">
-        <h1 className="font-display text-5xl font-bold tracking-[-0.04em] md:text-7xl">Portfolio</h1>
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-[hsl(var(--foreground)/80%)] md:text-lg">
-          Choose an industry to explore the websites and campaigns I made for these fictional brands.
-        </p>
-        <nav aria-label="Filter projects by industry" className="mb-8 mt-7 flex flex-wrap gap-2">
-          {filters.map(([key, label]) => {
-            const current = key === (active ?? "");
-            return (
-              <Link
-                key={label}
-                href={key ? "/portfolio/" + key : "/portfolio"}
-                scroll={false}
-                aria-current={current ? "page" : undefined}
-                className={`inline-flex min-h-11 items-center rounded-lg border px-4 text-sm font-medium transition-colors ${
-                  current
-                    ? "border-[hsl(var(--primary))] bg-[hsl(var(--primary)/12%)] text-[hsl(var(--primary))]"
-                    : "border-[hsl(var(--border))] bg-[hsl(var(--card))] hover:border-[hsl(var(--primary))]"
-                }`}
-              >
-                {label}
-              </Link>
-            );
-          })}
+        <h1 className="font-display text-4xl font-bold tracking-[-0.04em] sm:text-5xl md:text-7xl">
+          {active ? industries[active] : "Website portfolio"}
+        </h1>
+        {active ? null : <p className="mt-4 max-w-2xl text-base leading-relaxed text-[hsl(var(--foreground)/80%)] md:text-lg">
+          Explore the websites, redesign concepts and campaign films I’ve made across industries.
+        </p>}
+        <nav aria-label="Filter projects by industry" className="mt-6">
+          <details key={active ?? "all"} className="group md:hidden">
+            <summary className="flex min-h-12 cursor-pointer list-none items-center gap-3 rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] px-4 text-sm [&::-webkit-details-marker]:hidden">
+              <span className="text-[hsl(var(--muted-foreground))]">Industry</span>
+              <span className="font-semibold">{active ? industries[active] : "All industries"}</span>
+              <svg aria-hidden="true" className="ml-auto size-4 shrink-0 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="m5 7.5 5 5 5-5" /></svg>
+            </summary>
+            <div className="mt-2 flex flex-wrap gap-2">{filterLinks}</div>
+          </details>
+          <div className="hidden flex-wrap gap-2 md:flex">{filterLinks}</div>
         </nav>
+        <p className="mb-4 mt-5 text-sm text-[hsl(var(--muted-foreground))]">{projects.length} {projects.length === 1 ? "project" : "projects"}</p>
         <section aria-label={active ? industries[active] + " projects" : "All projects"} className="grid gap-6 md:grid-cols-2">
           {projects.map((project) => (
             <article key={project.slug} className="overflow-hidden rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--card))]">

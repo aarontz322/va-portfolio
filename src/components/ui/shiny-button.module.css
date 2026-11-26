@@ -1,0 +1,18 @@
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  padding: 1px;
+  background: linear-gradient(110deg, transparent 35%, hsl(var(--primary) / .55) 50%, transparent 65%) 100% 0 / 260% 100%;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .shine::after { animation: button-shine 4.5s ease-in-out infinite; }
+  @keyframes button-shine {
+    0%, 20% { background-position: 100% 0; }
+    75%, 100% { background-position: 0 0; }
+  }
+}

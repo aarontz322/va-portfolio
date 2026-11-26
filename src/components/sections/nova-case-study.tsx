@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useReducedMotion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, ShieldCheck } from "lucide-react";
 import { BorderTrail } from "@/components/ui/border-trail";
 
@@ -67,9 +66,6 @@ const panelItem = {
 
 export function NovaCaseStudySection() {
   const shouldReduce = useReducedMotion();
-
-  const progressRef = useRef<HTMLDivElement>(null);
-  const progressInView = useInView(progressRef, { once: true, margin: "-80px" });
 
   return (
     <section
@@ -176,15 +172,14 @@ export function NovaCaseStudySection() {
           {/* CTAs */}
           <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
             <motion.a
-              href="https://leadgen-app-nova.vercel.app"
-              target="_blank"
-              rel="noreferrer"
+              href="/nova"
               whileHover={shouldReduce ? {} : { y: -1, transition: { duration: 0.15 } }}
               className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-lg border border-[hsl(var(--primary))] bg-[hsl(var(--primary))] px-5 py-3 text-sm font-semibold text-[hsl(var(--primary-foreground))] transition-colors duration-200 hover:bg-[hsl(var(--primary)/88%)]"
             >
-              View Live App
+              Explore the walkthrough
               <ArrowUpRight className="h-4 w-4" />
             </motion.a>
+            <a className="inline-flex min-h-11 items-center px-2 text-sm font-semibold text-[hsl(var(--muted-foreground))] underline underline-offset-4" href="https://leadgen-app-nova.vercel.app">Client login</a>
           </motion.div>
         </motion.div>
 
@@ -221,20 +216,6 @@ export function NovaCaseStudySection() {
                   NOVA workspace
                 </p>
                 <p className="font-display text-lg font-bold">Command Center</p>
-              </div>
-              {/* Live status */}
-              <div className="flex items-center gap-2">
-                <motion.div
-                  className="h-2 w-2 rounded-full bg-emerald-400"
-                  animate={shouldReduce ? {} : {
-                    opacity: [1, 0.35, 1],
-                    scale: [1, 0.82, 1],
-                  }}
-                  transition={{ duration: 2.6, ease: "easeInOut", repeat: Infinity }}
-                />
-                <span className="font-mono text-xs uppercase tracking-widest text-emerald-400">
-                  Live
-                </span>
               </div>
             </motion.div>
 
@@ -318,62 +299,6 @@ export function NovaCaseStudySection() {
               </div>
             </div>
 
-            {/* Animated progress bar */}
-            <motion.div
-              variants={panelItem}
-              ref={progressRef}
-              className="border-t border-[hsl(var(--primary)/16%)] p-4"
-            >
-              {/* Metric label — the 78% belongs to Lead Visibility only */}
-              <p className="mb-6 font-mono text-xs font-semibold uppercase tracking-wider text-[hsl(var(--foreground))]">
-                Lead Visibility
-                <span className="ml-2 font-sans text-xs font-normal normal-case tracking-normal text-[hsl(215_25%_72%)]">
-                  Pipeline clarity
-                </span>
-              </p>
-
-              {/* Track */}
-              <div className="relative h-2 w-full rounded-full bg-[hsl(var(--surface-deep))]">
-                <motion.div
-                  className="relative h-2 rounded-full bg-gradient-to-r from-[hsl(var(--primary)/70%)] to-[hsl(var(--primary))]"
-                  initial={{ width: 0 }}
-                  animate={{ width: progressInView ? "78%" : 0 }}
-                  transition={{
-                    duration: shouldReduce ? 0 : 1.5,
-                    ease: [0.25, 0.46, 0.45, 0.94],
-                    delay: 0.25,
-                  }}
-                >
-                  {/* Percentage badge on tip */}
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: progressInView ? 1 : 0 }}
-                    transition={{ delay: shouldReduce ? 0 : 1.6, duration: 0.3 }}
-                    className="absolute -right-5 -top-5 font-mono text-xs font-bold text-[hsl(var(--primary))]"
-                  >
-                    78%
-                  </motion.span>
-                </motion.div>
-              </div>
-
-              {/* Text points — no numbers exist for these, so they are plain statements */}
-              <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-                {[
-                  { label: "Follow-up Discipline", sub: "Task follow-through" },
-                  { label: "Proof of Work",        sub: "Audit accountability" },
-                ].map(({ label, sub }) => (
-                  <li key={label} className="flex items-start gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[hsl(var(--primary))]" />
-                    <span>
-                      <span className="block font-mono text-xs font-semibold uppercase tracking-wider text-[hsl(var(--foreground))]">
-                        {label}
-                      </span>
-                      <span className="block text-xs text-[hsl(215_25%_72%)]">{sub}</span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
 
           </motion.div>
         </motion.div>

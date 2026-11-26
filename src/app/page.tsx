@@ -11,17 +11,16 @@ import { ContactSection } from "@/components/sections/contact";
 import { Nav } from "@/components/sections/nav";
 import { MobileBookBar } from "@/components/ui/mobile-book-bar";
 
-// Order: who I am, what I fix, what I do, proof (NOVA, work, reviews), then price.
 export default function Home() {
   return (
     <>
       <Nav />
       <main id="main" className="relative z-10">
         <HeroSection />
+        <WorksSection />
         <TransformSection />
         <ServicesSection />
         <NovaCaseStudySection />
-        <WorksSection />
         <TestimonialsSection />
         <PricingSectionWrapper />
         <AboutSection />
