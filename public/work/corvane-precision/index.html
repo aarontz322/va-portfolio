@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#191d20">
+  <meta name="description" content="Follow an aluminum bracket from CNC machining to batch inspection and prepare a drawing brief. A fictional manufacturing portfolio project.">
+  <title>Corvane Precision | CNC machining and inspection</title>
+  <link rel="icon" href="/work/corvane-precision/assets/corvane-mark.png">
+  <link rel="stylesheet" href="/work/corvane-precision/assets/type.css">
+  <link rel="stylesheet" href="/work/corvane-precision/site.css">
+  <script src="/work/corvane-precision/download.js" defer></script>
+  <script src="/work/corvane-precision/site.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast"><div class="wrap mast-inner">
+    <a href="#top" class="logo" aria-label="Corvane Precision home"><img src="/work/corvane-precision/assets/corvane-logo.png" width="228" height="89" alt="Corvane Precision"></a>
+    <nav aria-label="Main navigation"><a href="#capabilities">Capabilities</a><a href="#film">Shop film</a><a class="nav-quote" href="#rfq">Prepare an RFQ</a></nav>
+  </div></header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <figure class="hero-picture"><img src="/work/corvane-precision/assets/mill.webp" width="720" height="1280" alt="A spiral end mill cuts a pocket in an aluminum block as coolant runs over the tool." fetchpriority="high"><figcaption>End mill / aluminum stock</figcaption></figure>
+      <div class="wrap hero-inner"><div class="hero-copy">
+        <p class="kicker light">CNC machining &amp; inspection</p>
+        <h1 id="hero-title">Machined to<br>your print<span>.</span></h1>
+        <p class="lead">From the first cut to the last inspection, your drawing guides the work. Each batch ships with its inspection report.</p>
+        <div class="actions"><a class="button orange" href="#rfq">Prepare a quote request</a><a class="film-link" href="#film"><i aria-hidden="true"></i>Watch the shop film</a></div>
+      </div></div>
+    </section>
+    <section id="capabilities" class="wrap section process" aria-labelledby="process-title">
+      <div class="section-head"><div><p class="kicker">Shop capabilities</p><h2 id="process-title">From mill to shipment.</h2></div><a class="doc-link" href="/work/corvane-precision/assets/Corvane-Precision-Capabilities.pdf">View capability sheet <span>PDF</span></a></div>
+      <div class="process-grid">
+        <div class="stage-list" aria-label="Manufacturing stages">
+          <details open data-image="mill.webp" data-alt="A CNC end mill cutting an aluminum block." data-caption="Aluminum stock at the mill"><summary>Machine to print</summary><div><p>The drawing sets the part geometry, material and revision. In the film, an end mill cuts a pocket into an aluminum blank.</p></div></details>
+          <details data-image="inspection.webp" data-alt="The plant manager holding the finished aluminum bracket at the inspection bench." data-caption="Machined bracket at the inspection bench"><summary>Inspect each batch</summary><div><p>The part goes to the inspection bench. Identify the dimensions and drawing notes you want covered in the batch report.</p></div></details>
+          <details data-image="tray.webp" data-alt="Finished brackets arranged in a foam tray, including one with the Corvane mark." data-caption="Finished brackets in the shipping tray"><summary>Ship with the report</summary><div><p>The finished parts are arranged for packing. The inspection report travels with the batch so receiving can check it against the drawing.</p></div></details>
+        </div>
+        <figure class="stage-photo"><img id="stage-image" src="/work/corvane-precision/assets/mill.webp" width="720" height="1280" alt="A CNC end mill cutting an aluminum block." loading="lazy"><figcaption id="stage-caption">Aluminum stock at the mill</figcaption></figure>
+      </div>
+    </section>
+    <section class="film-section" id="film" aria-labelledby="film-title"><div class="wrap film-grid">
+      <div class="film-copy"><p class="kicker light">Shop film / 20 seconds</p><h2 id="film-title">On the floor<br> with the part.</h2>
+        <p>The plant manager follows the bracket from the mill to the dock and explains what comes with the shipment. Turn on sound to hear him over the shop floor.</p>
+        <div class="format-options" id="formats" hidden aria-label="Film format" role="group"><button type="button" data-format="portrait" aria-pressed="true">Portrait · 9:16</button><button type="button" data-format="square" aria-pressed="false">Square · 1:1</button></div>
+        <noscript><a class="film-link" href="/work/corvane-precision/assets/corvane_v1_1x1.mp4">Open the square film</a></noscript>
+      </div>
+      <figure class="film-player" id="player"><video id="campaign" width="1080" height="1920" poster="/work/corvane-precision/assets/presenter.webp" controls muted playsinline preload="metadata" aria-label="Corvane Precision captioned shop film" aria-describedby="disclosure"><source src="/work/corvane-precision/assets/corvane_v1.mp4" type="video/mp4"><a href="/work/corvane-precision/assets/corvane_v1.mp4">Open the shop film</a></video>
+        <figcaption id="disclosure">Concept ad, AI generated. Brand and presenter are fictional.</figcaption></figure>
+    </div></section>
+    <section id="rfq" class="wrap section rfq" aria-labelledby="rfq-title">
+      <div class="rfq-intro"><p class="kicker">Request for quotation</p><h2 id="rfq-title">Start with<br> your drawing.</h2>
+        <p>Give the shop a part reference, a quantity and the details that matter at inspection. Keep a copy to send with your drawing.</p>
+        <aside class="quote-note"><strong>Quote in two business days.</strong><p>The turnaround featured in the concept film. This demo creates a brief on your device.</p></aside>
+      </div>
+      <div class="workbench">
+        <form id="quote-form" hidden>
+          <div class="form-head"><h3>Drawing brief</h3><button class="under" id="sample" type="button">Use sample bracket</button></div>
+          <p class="form-hint">Part reference and quantity are required.</p>
+          <label for="part">Part name or drawing number</label><input id="part" name="part" required maxlength="120" placeholder="e.g. Mounting bracket BRK-204">
+          <div class="pair"><div><label for="revision">Drawing revision <small>(optional)</small></label><input id="revision" name="revision" maxlength="50" placeholder="e.g. B"></div><div><label for="quantity">Quantity</label><input id="quantity" name="quantity" type="number" required min="1" max="9007199254740991" step="1" inputmode="numeric" placeholder="Number of parts"></div></div>
+          <label for="material">Material on the print <small>(optional)</small></label><input id="material" name="material" maxlength="120" placeholder="e.g. Aluminum, grade per drawing">
+          <label for="drawing">Drawing file <small>(optional)</small></label><input id="drawing" type="file" aria-describedby="file-note"><div class="file-help"><small id="file-note">Only the filename goes in the brief. The file stays on your device.</small><button type="button" class="under" id="clear-file" hidden>Remove file</button></div>
+          <label for="notes">Inspection or packing notes <small>(optional)</small></label><textarea id="notes" name="notes" rows="3" maxlength="1500" placeholder="What should receiving check when the batch arrives?"></textarea>
+          <button type="submit" class="button orange">Review my brief</button>
+          <p id="form-status" class="status" role="status"></p>
+        </form>
+        <div id="result" hidden><p class="kicker">Quote request</p><h3 tabindex="-1" id="result-title">Your drawing brief</h3><dl id="brief-lines"></dl><p class="form-hint">Download these notes and attach the drawing separately when you contact a supplier. This demo sends no request.</p><div class="actions"><button type="button" id="download" class="button orange">Download brief</button><button type="button" id="edit" class="under">Edit details</button></div><p class="status" role="status" id="download-status"></p></div>
+        <noscript><h3>Prepare a drawing brief</h3><p>Include the part reference, revision, quantity, material and inspection notes with your drawing. Enable JavaScript to build and download a brief here.</p></noscript>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap foot"><a class="logo" href="#top"><img src="/work/corvane-precision/assets/corvane-logo.png" width="228" height="89" alt="Corvane Precision home"></a><p>Fictional manufacturer. <a href="/portfolio" class="portfolio-return">Portfolio concept by Aaron Novicio.</a></p><a href="#top">Back to top</a></div></footer>
+</body>
+</html>

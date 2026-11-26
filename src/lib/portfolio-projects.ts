@@ -1,4 +1,5 @@
 export const industries = {
+  "b2b-manufacturing": "B2B manufacturing",
   skincare: "Beauty & skincare",
   "construction-roofing": "Construction & roofing",
   fashion: "Fashion & accessories",
@@ -75,5 +76,12 @@ export const portfolioProjects: PortfolioProject[] = [
     industry: "mental-health",
     desc: "Explore what to ask before a first therapy visit, watch the illustrated harbor film, and save a personal list of questions for an introductory call.",
     alt: "Quiet Harbor Therapy homepage with a watercolor boat, dock, and distant lighthouse",
+  },
+  {
+    slug: "corvane-precision",
+    title: "CORVANE PRECISION",
+    industry: "b2b-manufacturing",
+    desc: "Follow an aluminum bracket from the mill to inspection, then prepare a drawing brief for a supplier quote.",
+    alt: "CORVANE PRECISION homepage showing an end mill cutting an aluminum part",
   },
 ];

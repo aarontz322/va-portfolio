@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
       { source: "/work/voltloop", destination: "/work/voltloop/index.html" },
       { source: "/work/isolara", destination: "/work/isolara/index.html" },
       { source: "/work/quiet-harbor-therapy", destination: "/work/quiet-harbor-therapy/index.html" },
+      { source: "/work/corvane-precision", destination: "/work/corvane-precision/index.html" },
     ];
   },
   images: {
