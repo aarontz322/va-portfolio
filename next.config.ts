@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
       { source: "/work/sivrenne", destination: "/work/sivrenne/index.html" },
       { source: "/work/amberlune", destination: "/work/amberlune/index.html" },
       { source: "/work/voltloop", destination: "/work/voltloop/index.html" },
+      { source: "/work/isolara", destination: "/work/isolara/index.html" },
+      { source: "/work/quiet-harbor-therapy", destination: "/work/quiet-harbor-therapy/index.html" },
     ];
   },
   images: {

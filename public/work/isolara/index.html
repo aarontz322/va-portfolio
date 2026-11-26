@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121530">
+  <meta name="description" content="Explore an ISOLARA private coastal journey, meet the travel advisor, and build a personal trip brief.">
+  <title>ISOLARA Private Journeys | A stay by the sea</title>
+  <link rel="icon" href="/work/isolara/assets/isolara-logo.png" type="image/png">
+  <link rel="stylesheet" href="/work/isolara/site.css">
+  <script src="/work/isolara/coastal-days.js" defer></script>
+  <script src="/work/isolara/site.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a class="brand" href="#top" aria-label="ISOLARA Private Journeys, home">
+        <span class="brand-arch" aria-hidden="true"><img src="/work/isolara/assets/isolara-logo.png" alt=""></span>
+        <span class="brand-type" aria-hidden="true"><img src="/work/isolara/assets/isolara-logo.png" alt=""></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#itinerary">The itinerary</a>
+        <a href="#film">Meet your advisor</a>
+        <a class="nav-brief" href="#brief">Plan a journey</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span aria-hidden="true"></span>Private coastal journeys</p>
+        <h1 id="hero-title">The coast,<br><em>at your pace.</em></h1>
+        <p class="intro">A villa above the sea. A driver for the coastal road, a table for the evening, and whole afternoons to call your own.</p>
+        <div class="hero-actions"><a class="button ivory" href="#itinerary">Explore the itinerary</a><a class="film-link" href="#film"><span class="play-icon" aria-hidden="true"></span>Watch the film</a></div>
+      </div>
+      <figure class="hero-photo">
+        <picture><source media="(max-width:660px)" srcset="/work/isolara/assets/villa.webp">
+        <img src="/work/isolara/assets/coast-hero.webp" alt="A white villa and green headland above a turquoise bay" fetchpriority="high">
+        </picture>
+      </figure>
+    </section>
+    <section id="itinerary" class="itinerary section-wrap" aria-labelledby="itinerary-title">
+      <div class="section-heading">
+        <div><p class="eyebrow dark"><span aria-hidden="true"></span>Sample itinerary</p><h2 id="itinerary-title"><span id="route-length-text">Three nights</span> <em>on the coast.</em></h2></div>
+        <p>The villa is your base. Open a day to see where a harbor lunch, a coastal drive, or an afternoon by the pool could fit.</p>
+      </div>
+      <div class="route-tools" id="route-tools" hidden>
+        <fieldset class="stay-picker">
+          <legend>Length of stay</legend>
+          <div class="stay-options">
+            <label><input type="radio" name="route-nights" value="3" checked><span>3 nights</span></label>
+            <label><input type="radio" name="route-nights" value="5"><span>5 nights</span></label>
+            <label><input type="radio" name="route-nights" value="7"><span>7 nights</span></label>
+          </div>
+        </fieldset>
+        <label class="route-interest" for="route-priority">Make time for
+          <select id="route-priority"><option value="water">Time by the water</option><option value="food">Local food</option><option value="drives">Coastal drives</option></select>
+        </label>
+        <a class="use-route" href="#brief">Use this itinerary</a>
+        <span id="route-status" class="sr-only" aria-live="polite"></span>
+      </div>
+      <div class="itinerary-grid">
+        <figure class="itinerary-picture">
+          <img id="day-photo" src="/work/isolara/assets/villa.webp" alt="A pool on the villa terrace overlooking the sea" width="720" height="1280" loading="lazy">
+          <figcaption id="day-caption">At the villa terrace</figcaption>
+        </figure>
+        <div class="day-list">
+          <details name="itinerary-day" data-picture="villa.webp" data-alt="A pool on the villa terrace overlooking the sea" data-caption="At the villa terrace" open>
+            <summary><span class="day-label">Day 1</span><span>Settle into the villa</span><i aria-hidden="true"></i></summary>
+            <div class="day-content"><p>A driver meets you on arrival and takes the coastal road to the villa. Leave your bags, walk down to the terrace, and take your first swim.</p><p class="day-detail"><strong>Evening</strong> Stay close to home with a simple supper by the water.</p></div>
+          </details>
+          <details name="itinerary-day" data-picture="folio.webp" data-alt="A violet ISOLARA travel folio beside a passport on a terrace table" data-caption="The itinerary folio">
+            <summary><span class="day-label">Day 2</span><span>Follow the coastal road</span><i aria-hidden="true"></i></summary>
+            <div class="day-content"><p>Take a short drive to a harbor for coffee and a waterfront walk. Plan one lunch stop and leave the return route open for a viewpoint along the way.</p><p class="day-detail"><strong>Afternoon</strong> Return to the pool or ask the driver to linger at the harbor.</p></div>
+          </details>
+          <details name="itinerary-day" data-picture="sunset.webp" data-alt="The ISOLARA travel advisor on a coastal terrace at sunset" data-caption="Last light on the terrace">
+            <summary><span class="day-label">Day 3</span><span>Save the evening for dinner</span><i aria-hidden="true"></i></summary>
+            <div class="day-content"><p>Keep the morning free for the terrace. Later, leave enough time for a stop above the bay on the way to dinner.</p><p class="day-detail"><strong>At the table</strong> Tell your advisor what you enjoy eating and whether you prefer a quiet corner or a lively room.</p></div>
+          </details>
+          <details name="itinerary-day" data-picture="villa.webp" data-alt="The villa pool beside the sea" data-caption="A final morning at the villa">
+            <summary><span class="day-label">Day 4</span><span>One last morning by the sea</span><i aria-hidden="true"></i></summary>
+            <div class="day-content"><p>Match breakfast to your departure time. For a later flight, leave the morning open for a swim before your driver arrives.</p><p class="day-detail"><strong>Departure</strong> Build in time for the coastal road and your onward connection.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+    <section class="film-section" id="film" aria-labelledby="film-title">
+      <div class="film-inner">
+        <div class="film-copy">
+          <p class="eyebrow"><span aria-hidden="true"></span>The ISOLARA film</p>
+          <h2 id="film-title">Meet your <em>travel advisor.</em></h2>
+          <p>On the villa terrace, your advisor explains how she plans a private stay, from the driver to the dinner reservation.</p>
+          <button type="button" id="sound-button" class="button ivory" aria-controls="campaign-film" hidden><span class="play-icon" aria-hidden="true"></span><span id="sound-label">Play film with sound</span></button>
+        </div>
+        <figure class="film-player">
+          <video id="campaign-film" width="1080" height="1920" controls muted playsinline preload="metadata" poster="/work/isolara/assets/film-poster.webp" aria-label="ISOLARA Private Journeys campaign film" aria-describedby="film-note">
+            <source src="/work/isolara/assets/isolara-film.mp4" type="video/mp4">
+            <a href="/work/isolara/assets/isolara-film.mp4">Open the ISOLARA film</a>
+          </video>
+          <figcaption id="film-note">Concept ad, AI generated. Brand and presenter are fictional.</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="brief section-wrap" id="brief" aria-labelledby="brief-title">
+      <div class="brief-intro">
+        <p class="eyebrow dark"><span aria-hidden="true"></span>Journey planning</p>
+        <h2 id="brief-title">Begin <em>your brief.</em></h2>
+        <p>Choose who’s coming and what you’d like to do. Keep a copy of the full itinerary to talk through with a travel advisor.</p>
+        <a class="sample-brief" href="/work/isolara/assets/ISOLARA-Five-Night-Sample.pdf">View a sample brief for five nights (PDF)</a>
+        <p class="demo-note">Portfolio demo. Your choices stay in this browser. No booking or inquiry is sent.</p>
+      </div>
+      <div class="planner">
+        <form id="brief-form" hidden>
+          <div class="field-pair">
+            <label>Length of stay<select name="nights"><option value="3">Three nights</option><option value="5">Five nights</option><option value="7">Seven nights</option></select></label>
+            <label>Travel party<select name="party"><option value="two">Two travelers</option><option value="solo">Solo traveler</option><option value="group">Family or friends</option></select></label>
+          </div>
+          <fieldset><legend>What would you make time for?</legend><div class="choices">
+            <label><input type="radio" name="priority" value="water" checked>Time by the water</label>
+            <label><input type="radio" name="priority" value="food">Local food</label>
+            <label><input type="radio" name="priority" value="drives">Coastal drives</label>
+          </div></fieldset>
+          <button type="submit" class="button violet">Create my brief</button>
+        </form>
+        <div id="brief-result" class="brief-result" hidden>
+          <p class="print-brand">ISOLARA Private Journeys</p>
+          <h3 tabindex="-1" id="result-title">Your coastal journey brief</h3>
+          <p id="result-summary" class="result-summary"></p>
+          <p id="result-plan"></p>
+          <ol id="result-days" class="brief-days" aria-label="Your day-by-day itinerary"></ol>
+          <p class="brief-disclosure">Sample itinerary for a fictional travel studio. Dates, properties and reservations require confirmation.</p>
+          <div class="result-actions"><button class="button violet" type="button" id="download-brief">Download brief</button><button type="button" class="text-button" id="print-brief">Print brief</button><button type="button" class="text-button" id="edit-brief">Edit choices</button></div>
+        </div>
+        <noscript><p class="demo-note">Enable JavaScript to build and download the sample brief.</p></noscript>
+      </div>
+    </section>
+  </main>
+  <footer><div class="footer-inner">
+    <a href="#top" aria-label="ISOLARA Private Journeys, back to top"><img class="footer-logo" src="/work/isolara/assets/isolara-logo.png" alt="ISOLARA Private Journeys"></a>
+    <p>Fictional travel studio. <a class="portfolio-return" href="/portfolio">Portfolio concept by Aaron Novicio.</a><br>The villa and itinerary are illustrative.</p>
+    <a class="back" href="#top">Back to top</a>
+  </div></footer>
+</body></html>

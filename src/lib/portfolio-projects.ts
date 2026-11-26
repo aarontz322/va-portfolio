@@ -4,6 +4,8 @@ export const industries = {
   fashion: "Fashion & accessories",
   fitness: "Fitness",
   jewelry: "Jewelry",
+  "luxury-travel": "Luxury travel",
+  "mental-health": "Mental health & wellness",
   "real-estate": "Real estate",
 } as const;
 
@@ -59,5 +61,19 @@ export const portfolioProjects: PortfolioProject[] = [
     industry: "fitness",
     desc: "Watch the resistance bands in action, preview a two-minute workout, and set your own work and rest intervals.",
     alt: "VOLTLOOP storefront showing three fabric resistance bands and their black carry pouch",
+  },
+  {
+    slug: "isolara",
+    title: "ISOLARA Private Journeys",
+    industry: "luxury-travel",
+    desc: "Plan a coastal stay around local food, time on the water, or scenic drives. Download the day-by-day itinerary to share with a travel advisor.",
+    alt: "ISOLARA travel studio homepage showing a white villa above a turquoise bay",
+  },
+  {
+    slug: "quiet-harbor-therapy",
+    title: "Quiet Harbor Therapy",
+    industry: "mental-health",
+    desc: "Explore what to ask before a first therapy visit, watch the illustrated harbor film, and save a personal list of questions for an introductory call.",
+    alt: "Quiet Harbor Therapy homepage with a watercolor boat, dock, and distant lighthouse",
   },
 ];
