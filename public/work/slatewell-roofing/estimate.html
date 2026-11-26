@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#142a40">
+  <meta name="description" content="Prepare a sample roof inspection request for a leak, worn shingles, or a roof you’re thinking of replacing.">
+  <title>Inspection Desk | Slatewell Roofing</title>
+  <link rel="icon" href="/work/slatewell-roofing/assets/slatewell-logo.png">
+  <link rel="stylesheet" href="/work/slatewell-roofing/assets/type.css">
+  <link rel="stylesheet" href="/work/slatewell-roofing/base.css">
+  <link rel="stylesheet" href="/work/slatewell-roofing/site.css">
+  <script src="/work/slatewell-roofing/base.js" defer></script>
+  <script src="/work/slatewell-roofing/site.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+<header class="mast"><div class="wrap bar"><a href="/work/slatewell-roofing" class="brand"><img src="/work/slatewell-roofing/assets/slatewell-logo.png" alt="Slatewell Roofing"></a><nav aria-label="Main navigation"><a href="/work/slatewell-roofing">Home</a><a class="secondary" href="#services">Services</a><a href="#estimate" class="header-est">Inspection request</a></nav></div></header>
+<main id="main">
+  <section class="roof-hero"><div class="hero-copy"><h1>What did you<br><em>notice?</em></h1><p class="lead">A stain on the ceiling or a bare patch on the roof? Start with what you can see from indoors or from the ground.</p><a class="btn" href="#estimate">Request a free inspection</a></div><figure><img src="/work/slatewell-roofing/assets/roof.webp" alt="Rain collecting along charcoal roof shingles, metal gutter, and cedar siding" fetchpriority="high"><figcaption>Roof detail <span>Eave &amp; gutter</span></figcaption></figure></section>
+  <section id="services" class="services section wrap"><div class="headgroup"><h2>Why homeowners call</h2></div><div class="service-list"><article><h3>Leaks after rain</h3><p>Tell us which room gets wet and whether it happens in light rain or only during windy storms.</p></article><article><h3>Worn shingles</h3><p>If you can see curled shingles or missing patches, tell us which side of the house they’re on. You can also ask about replacing the roof.</p></article><article><h3>Storm follow-up</h3><p>Describe what changed after the weather passed. An observation from a window or the ground is enough to get started.</p></article></div></section>
+  <section id="estimate" class="estimate section"><div class="wrap estimate-grid"><div class="headgroup"><h2>Describe the issue.</h2><p class="lead">What have you seen, and where on the house? A few details help the roofer prepare for a visit.</p><div class="demo"><strong>Try the demo form</strong><p>It prepares a request you can download. The details stay in this browser tab.</p></div></div>
+  <div class="paper"><form id="estimate-form" class="form-grid">
+    <fieldset class="full inspection-reason">
+      <legend>What would you like us to look at?</legend>
+      <label><input type="radio" name="reason" value="Leak or water stain" id="reason-leak" required> Leak or water stain</label>
+      <label><input type="radio" name="reason" value="Worn shingles or possible replacement" required> Worn shingles or possible replacement</label>
+      <label><input type="radio" name="reason" value="Unsure" required> Unsure</label>
+    </fieldset>
+    <fieldset class="full" id="leak-details" hidden disabled>
+      <legend class="sr">Leak details</legend>
+      <div class="form-grid">
+        <label class="field">Where did you notice it?<select name="location" required><option value="">Choose a location</option><option>Ceiling or attic</option><option>Window or exterior wall</option><option>Chimney or skylight</option><option>Gutter or roof edge</option><option>Unsure</option></select></label>
+        <label class="field">When does it happen?<select name="weather" required><option value="">Choose a pattern</option><option>During any rain</option><option>Only in heavy or windy rain</option><option>After the rain stops</option><option>Unsure</option></select></label>
+      </div>
+    </fieldset>
+    <label class="field">Roof covering<select name="covering"><option>Unsure</option><option>Asphalt shingles</option><option>Metal</option><option>Tile</option><option>Other</option></select></label>
+    <label class="field">Preferred visit window<select name="window"><option>Flexible</option><option>Weekday morning</option><option>Weekday afternoon</option></select></label>
+    <label class="field full">What else should the estimator know? <small>Optional</small><textarea name="details" maxlength="1400" rows="3"></textarea></label>
+    <div class="full"><button class="btn" type="submit">Preview inspection request</button></div>
+  </form><section aria-labelledby="preview-title" class="result" id="estimate-result" hidden><h3 id="preview-title" tabindex="-1">Your request preview</h3><p id="request-copy"></p><div class="actions"><button class="text-btn" id="download-request" type="button">Download request</button><button class="text-btn" id="edit-request" type="button">Edit request</button></div></section></div></div></section>
+</main><footer class="foot"><div class="wrap foot-in"><a class="foot-brand" href="#top">Slatewell Roofing</a><p>Fictional roofing company. This demo prepares an inspection request in your browser. <a href="/#works">Back to Aaron’s portfolio</a></p></div></footer>
+</body>
+</html>

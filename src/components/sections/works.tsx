@@ -12,6 +12,7 @@ type Work = {
   stats?: { value: string; label: string }[];
   /** Screenshot of the real work. Cards without one stay text only. */
   image?: { src: string; alt: string };
+  demoHref?: string;
 };
 
 // Screenshots that match no single card. Shown as a small row under the grid.
@@ -41,6 +42,22 @@ const works: Work[] = [
     desc: "Targeted lead list with name, role, company, email pattern, and LinkedIn URLs. Ready for outreach.",
     stats: [],
     image: { src: "/works/Example.webp", alt: "Lead list spreadsheet with decision maker names, roles, emails and LinkedIn links" },
+  },
+  {
+    category: "websites",
+    platform: "Home services · Portfolio concept",
+    title: "Slatewell Roofing",
+    desc: "Compare one home's roof before and after replacement, watch the project film, and build a sample inspection request.",
+    image: { src: "/works/slatewell-roofing.webp", alt: "Slatewell Roofing homepage with the roof inspection film beside the headline" },
+    demoHref: "/work/slatewell-roofing",
+  },
+  {
+    category: "websites",
+    platform: "Fashion · Portfolio concept",
+    title: "VERANE",
+    desc: "Explore the Cara handbag in four colors, watch the campaign films, and try different combinations in the shopping bag.",
+    image: { src: "/works/verane.webp", alt: "VERANE storefront showing the cognac Cara handbag on a marble café table" },
+    demoHref: "/work/verane",
   },
   {
     category: "crm",
@@ -107,6 +124,7 @@ const works: Work[] = [
 
 const tabs = [
   { key: "all",        label: "All Work" },
+  { key: "websites",   label: "Websites" },
   { key: "leads",      label: "Lead Generation" },
   { key: "crm",        label: "CRM & Outreach" },
   { key: "automation", label: "Automations" },
@@ -135,7 +153,7 @@ export function WorksSection() {
             Samples of my work
           </h2>
           <p className="text-[hsl(var(--muted-foreground))]">
-            Real work from real clients. Filter by category.
+            Client work and self-initiated portfolio projects. Choose a category to explore.
           </p>
         </motion.div>
 
@@ -196,6 +214,15 @@ export function WorksSection() {
                 <p className="relative z-10 text-sm text-[hsl(var(--muted-foreground))] leading-relaxed flex-1">
                   {w.desc}
                 </p>
+
+                {w.demoHref && (
+                  <a
+                    href={w.demoHref}
+                    className="relative z-10 mt-3 inline-flex min-h-11 items-center self-start text-sm font-semibold text-[hsl(var(--primary))] underline underline-offset-4 hover:text-[hsl(var(--foreground))]"
+                  >
+                    Open live demo<span className="sr-only"> for {w.title}</span>
+                  </a>
+                )}
 
                 {/* Metric stats — only shown when data exists */}
                 {w.stats && w.stats.length > 0 && (
