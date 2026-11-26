@@ -5,6 +5,8 @@ const nextConfig: NextConfig = {
     return [
       { source: "/work/slatewell-roofing", destination: "/work/slatewell-roofing/index.html" },
       { source: "/work/verane", destination: "/work/verane/index.html" },
+      { source: "/work/golden-hour-realty", destination: "/work/golden-hour-realty/index.html" },
+      { source: "/work/sivrenne", destination: "/work/sivrenne/index.html" },
     ];
   },
   images: {

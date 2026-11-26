@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Fold Collection | SIVRENNE</title>
+<meta name="description" content="Explore the pendant, cuff and studs from SIVRENNE’s Fold Collection.">
+<link rel="icon" type="image/svg+xml" href="/work/sivrenne/assets/mark.svg"><link rel="stylesheet" href="/work/sivrenne/site.css">
+<script>
+  const piece = new URLSearchParams(location.search).get("piece");
+  const destination = ["pendant", "cuff", "studs"].includes(piece) ? piece : "pendant";
+  location.replace("fold-" + destination + ".html" + location.hash);
+</script>
+</head><body><main class="section collection">
+<h1>The Fold Collection</h1>
+<nav aria-label="Choose a piece"><a class="underlink" href="/work/sivrenne/fold-pendant.html">Fold Pendant</a> · <a class="underlink" href="/work/sivrenne/fold-cuff.html">Fold Cuff</a> · <a class="underlink" href="/work/sivrenne/fold-studs.html">Fold Studs</a></nav>
+</main></body></html>
