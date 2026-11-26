@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F4EAD9">
+  <meta name="description" content="Meet AMBERLUNE Golden Drop Serum. Explore the amber glass bottle, see the texture, and watch the evening skincare film.">
+  <title>Golden Drop Serum | AMBERLUNE</title>
+  <link rel="icon" href="/work/amberlune/assets/amberlune-icon.png" type="image/png">
+  <link rel="stylesheet" href="/work/amberlune/shop.css">
+  <script src="/work/amberlune/shop.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast">
+    <div class="mast-inner wrap">
+      <nav aria-label="Main navigation"><a href="#product">The serum</a><a href="#film">The film</a></nav>
+      <a class="wordmark" href="#top"><img src="/work/amberlune/assets/amberlune-logo.png" alt="AMBERLUNE Golden Drop Serum" width="540" height="275"></a>
+      <button id="open-bag" class="bag-link" type="button" aria-haspopup="dialog">
+        <svg width="19" height="23" viewBox="0 0 24 28" aria-hidden="true"><path d="M3 8h18l1 17H2L3 8Zm5 1V6a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <span>Bag (<span id="bag-count">0</span>)</span>
+      </button>
+    </div>
+  </header>
+  <main id="main">
+    <section id="product" class="product wrap" aria-labelledby="product-title">
+      <div class="product-gallery">
+        <figure class="main-shot">
+          <img id="product-image" src="/work/amberlune/assets/bottle.webp" width="1100" height="1945" alt="Golden Drop Serum in a labeled amber glass bottle on travertine, framed by palm shadows" fetchpriority="high">
+        </figure>
+        <div class="gallery-line">
+          <div class="views" role="group" aria-label="Product photographs">
+            <button type="button" class="view" aria-pressed="true" data-view="bottle" aria-label="Show the bottle"><img src="/work/amberlune/assets/bottle.webp" alt=""></button>
+            <button type="button" class="view" aria-pressed="false" data-view="texture" aria-label="Show the serum texture"><img src="/work/amberlune/assets/texture.webp" alt=""></button>
+            <button type="button" class="view" aria-pressed="false" data-view="in-hand" aria-label="Show the serum in hand"><img src="/work/amberlune/assets/in-hand.webp" alt=""></button>
+          </div>
+          <p id="photo-caption" aria-live="polite">The bottle</p>
+        </div>
+      </div>
+      <div class="product-copy">
+        <h1 id="product-title">Golden Drop<br><em>Serum.</em></h1>
+        <p class="intro">Golden Drop feels light, sinks in quickly, and leaves skin with a soft glow.</p>
+        <div class="purchase">
+          <div class="product-meta"><span>30 mL <span aria-hidden="true">/</span> 1 fl oz</span><span><strong>$38</strong> <small>Demo price · USD</small></span></div>
+          <a class="size-link" id="size-check" href="/work/amberlune/assets/golden-drop-size-check-voice-v2.mp4" aria-haspopup="dialog" aria-controls="size-dialog">See the bottle in hand <small>12 sec</small></a>
+          <div class="buy-row">
+            <div class="quantity" role="group" aria-label="Bottles to add">
+              <button id="qty-less" type="button" aria-label="Decrease quantity" disabled>−</button>
+              <output id="qty" aria-label="Quantity" aria-live="polite">1</output>
+              <button id="qty-more" type="button" aria-label="Increase quantity">+</button>
+            </div>
+            <button id="add-bag" class="primary" type="button" aria-haspopup="dialog">Add to bag</button>
+          </div>
+        </div>
+        <a class="film-link" href="/work/amberlune/assets/ugc_v2c-voice-v2.mp4#t=8" id="watch-film">
+          <span class="film-thumb"><img src="/work/amberlune/assets/in-hand.webp" alt="" width="48" height="60"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#F4EAD9"/><path d="m10 7 7 5-7 5z" fill="#2B1A0E"/></svg></span>
+          <span><strong>See the dropper in action</strong><small>Jump to 0:08 in the evening routine</small></span>
+        </a>
+      </div>
+    </section>
+    <section class="film-section" id="film" aria-labelledby="film-title">
+      <div class="film-grid wrap">
+        <div class="cinema">
+          <figure class="screen">
+            <video id="campaign" aria-label="AMBERLUNE Golden Drop Serum evening routine" aria-describedby="film-caption" muted controls playsinline preload="metadata" poster="/work/amberlune/assets/film-poster.webp" width="1080" height="1920" tabindex="0">
+              <source src="/work/amberlune/assets/ugc_v2c-voice-v2.mp4" type="video/mp4">
+              <a href="/work/amberlune/assets/ugc_v2c-voice-v2.mp4">Open the film</a>
+            </video>
+            <figcaption id="film-caption">Concept ad, AI generated. Brand and presenter are fictional.</figcaption>
+          </figure>
+        </div>
+        <div class="film-copy">
+          <h2 id="film-title">The evening<br><em>routine.</em></h2>
+          <p>Follow the serum from the vanity to the tip of the dropper. Jump to a moment in the film.</p>
+          <div class="chapters" role="group" aria-label="Play a scene">
+            <button type="button" data-time="0"><span>00:00</span>At the vanity</button>
+            <button type="button" data-time="8"><span>00:08</span>One golden drop</button>
+            <button type="button" data-time="12"><span>00:12</span>The texture close-up</button>
+          </div>
+          <details class="transcript">
+            <summary>Read the transcript</summary>
+            <p>“Five products every night and your skin still looks tired? Let’s make this simple. One golden drop. It’s light, it sinks in fast, and it leaves a soft glow. Amberlune Golden Drop. Tap the link and try it tonight.”</p>
+          </details>
+          <a class="shop-back" href="#product">Shop Golden Drop Serum</a>
+        </div>
+      </div>
+    </section>
+    <section id="details" class="details-section wrap" aria-labelledby="details-title">
+      <div class="bottle-details">
+        <h2 id="details-title">On the <em>bottle.</em></h2>
+        <dl>
+          <div><dt>Product</dt><dd>Golden Drop Serum</dd></div>
+          <div><dt>Volume</dt><dd>30 mL / 1 fl oz</dd></div>
+          <div><dt>Packaging</dt><dd>Amber glass with a cream label</dd></div>
+          <div><dt>Applicator</dt><dd>Glass pipette with a black bulb</dd></div>
+        </dl>
+      </div>
+      <figure class="detail-image"><img src="/work/amberlune/assets/texture.webp" alt="Glass pipette and golden serum spread on a glass plate beside the AMBERLUNE bottle" width="1000" height="1768" loading="lazy"></figure>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="wrap"><a href="#top">AMBERLUNE</a><p><a class="portfolio-return" href="/portfolio">Portfolio concept by Aaron Novicio.</a> Fictional skincare storefront. Campaign imagery is AI-generated.</p></div>
+  </footer>
+  <dialog id="size-dialog" aria-labelledby="size-title" closedby="any">
+    <header class="size-heading"><h2 id="size-title">How big is 30 mL?</h2><form method="dialog"><button type="submit" autofocus>Close</button></form></header>
+    <video id="size-film" aria-label="Golden Drop bottle shown in hand and beside a lip balm" width="1080" height="1920" muted controls playsinline preload="none" poster="/work/amberlune/assets/bottle-size-poster.webp">
+      <source src="/work/amberlune/assets/golden-drop-size-check-voice-v2.mp4" type="video/mp4">
+      <a href="/work/amberlune/assets/golden-drop-size-check-voice-v2.mp4">Open the bottle-size video</a>
+    </video>
+  </dialog>
+  <dialog id="bag" aria-labelledby="bag-title">
+    <div class="bag-inner">
+      <header class="bag-header"><h2 id="bag-title">Your bag</h2><button id="close-bag" type="button" aria-label="Close bag" autofocus>Close</button></header>
+      <div id="empty-bag"><p>Your bag is empty.</p><button id="back-to-serum" class="primary" type="button">Explore the serum</button></div>
+      <div id="filled-bag" hidden>
+        <article class="bag-product">
+          <img src="/work/amberlune/assets/bottle.webp" alt="Golden Drop Serum bottle" width="96" height="124">
+          <div><h3>Golden Drop Serum</h3><p>30 mL / 1 fl oz</p><button class="text-button" id="remove" type="button">Remove</button></div>
+        </article>
+        <div class="bag-controls"><div class="quantity" role="group" aria-label="Bottles in bag">
+          <button id="bag-less" aria-label="Remove one bottle" type="button">−</button><output id="bag-qty" aria-label="Bag quantity" aria-live="polite">1</output><button id="bag-more" aria-label="Add one bottle" type="button">+</button>
+        </div><strong id="line-total"></strong></div>
+        <div class="subtotal"><span>Subtotal</span><strong id="subtotal"></strong></div>
+        <p class="bag-note">Portfolio checkout preview. No payment or shipping details are collected.</p>
+        <button id="preview-order" class="primary" type="button">Preview order</button>
+        <section id="order-preview" aria-live="polite" hidden><h3>Order preview</h3><p id="order-text"></p><button class="text-button" id="save-order" type="button">Download summary</button><p role="status" id="save-status"></p></section>
+      </div>
+    </div>
+  </dialog>
+</body>
+</html>

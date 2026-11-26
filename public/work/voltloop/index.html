@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0e0e10">
+  <meta name="description" content="Meet the VOLTLOOP fabric resistance band set. See the bands in action and build a timed session for your next workout.">
+  <title>VOLTLOOP | Fabric Resistance Bands</title>
+  <link rel="icon" href="/work/voltloop/assets/bolt.png" type="image/png">
+  <link rel="stylesheet" href="/work/voltloop/training.css">
+  <script src="/work/voltloop/training.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a href="#top" class="brand"><img src="/work/voltloop/assets/voltloop-logo.png" width="650" height="131" alt="VOLTLOOP"></a>
+      <nav aria-label="Main navigation"><a href="#set">The set</a><a href="#film">Campaign film</a><a class="nav-timer" href="#session">Session timer</a></nav>
+    </div>
+  </header>
+  <main id="main">
+    <section id="set" class="hero" aria-labelledby="product-name">
+      <div class="hero-grid wrap">
+        <div class="hero-copy">
+          <p class="category">Fabric resistance set</p>
+          <h1 id="product-name">Three bands.<br><em>One pouch.</em></h1>
+          <p class="lead">Three levels of resistance in soft woven fabric. Take the set from your living room to your gym bag.</p>
+          <div class="actions"><a class="button volt" href="#session">Build a session</a><a class="film-link" id="watch" href="#film"><span class="play-mark" aria-hidden="true"></span>Watch the film</a></div>
+        </div>
+        <div class="product-view">
+          <figure class="hero-photo">
+            <img id="set-image" src="/work/voltloop/assets/band-set.webp" alt="Black, electric blue and volt yellow fabric bands stacked beside the VOLTLOOP pouch" width="720" height="1280" fetchpriority="high">
+          </figure>
+          <div class="view-tabs" role="group" aria-label="Product photographs">
+            <button type="button" data-photo="set" aria-pressed="true">The full set</button>
+            <button type="button" data-photo="training" aria-pressed="false">In use</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="kit-strip"><dl class="wrap kit-specs">
+      <div><dt>Resistance</dt><dd>Three levels</dd></div>
+      <div><dt>Material</dt><dd>Woven fabric</dd></div>
+      <div><dt>Included</dt><dd>Zip pouch</dd></div>
+    </dl></div>
+    <section class="campaign wrap" id="film" aria-labelledby="film-title">
+      <div class="campaign-media">
+        <video id="campaign-film" muted playsinline controls preload="metadata" poster="/work/voltloop/assets/film-poster.webp" width="1080" height="1920" aria-label="VOLTLOOP resistance band campaign" aria-describedby="disclosure" tabindex="0">
+          <source src="/work/voltloop/assets/fitness_v1b-voice-v2.mp4" type="video/mp4">
+          <a href="/work/voltloop/assets/fitness_v1b-voice-v2.mp4">Open the campaign film</a>
+        </video>
+        <p id="disclosure">Concept ad, AI generated. Brand and presenter are fictional.</p>
+      </div>
+      <div class="film-copy">
+        <p class="category ink">Campaign film <span aria-hidden="true">/</span> 17 seconds</p>
+        <h2 id="film-title">See the set<br><em>in action.</em></h2>
+        <p>Watch the blue band stretch, then take a closer look at the woven fabric and the pouch that holds the set.</p>
+        <div class="chapters" role="group" aria-label="Play a scene">
+          <button data-time="0" type="button"><time>00:00</time> Meet the set <span class="chapter-play" aria-hidden="true"></span></button>
+          <button data-time="6.5" type="button"><time>00:06</time> The band stretch <span class="chapter-play" aria-hidden="true"></span></button>
+          <button data-time="8.3" type="button"><time>00:08</time> Inside the kit <span class="chapter-play" aria-hidden="true"></span></button>
+        </div>
+        <details><summary>Read the transcript</summary><p>“You don’t need a full gym to train like you have one. You need this. Three resistance levels. Soft fabric that stays put. And it fits in any bag. VOLTLOOP bands. Tap the link and start your first session tonight.”</p></details>
+        <a class="timer-return" href="#timer-form">Use the session timer</a>
+      </div>
+    </section>
+    <section class="timer-section" id="session" aria-labelledby="timer-title">
+      <div class="wrap timer-grid">
+        <div class="timer-copy">
+          <p class="category">Interval timer</p>
+          <h2 id="timer-title">Set your<br><em>own pace.</em></h2>
+          <p><a id="watch-band-pull" href="/work/voltloop/assets/fitness_v1b-voice-v2.mp4#t=6.5">Try the band pull shown in the film.</a> Use the work interval for the movement and rest between rounds.</p>
+        </div>
+        <div class="console">
+          <form id="timer-form">
+            <div class="selectors">
+              <label>Work<select id="work"><option value="15">15 sec</option><option value="20">20 sec</option><option value="30" selected>30 sec</option><option value="45">45 sec</option></select></label>
+              <label>Rest<select id="rest"><option value="5">5 sec</option><option value="10">10 sec</option><option value="15" selected>15 sec</option><option value="30">30 sec</option></select></label>
+              <label>Rounds<select id="rounds"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></label>
+            </div>
+            <div class="clock-box"><p id="clock-label" role="status">Total session time</p><output id="clock" aria-labelledby="clock-label" aria-live="off">02:00</output></div>
+            <div class="timer-actions"><button class="button dark" type="submit" id="main-timer">Start timer</button><button type="button" id="reset-timer" hidden>Reset</button></div>
+          </form>
+          <a class="walkthrough-link" id="session-preview" href="/work/voltloop/assets/voltloop-two-minute-timer-voice-v2.mp4" aria-haspopup="dialog" aria-controls="walkthrough-dialog">Preview the two-minute session <small>16 sec</small></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap foot"><a href="#top" aria-label="VOLTLOOP, back to top"><img src="/work/voltloop/assets/voltloop-logo.png" width="155" height="33" alt="VOLTLOOP"></a><p><a class="portfolio-return" href="/portfolio">Portfolio concept by Aaron Novicio.</a></p><a href="#top">Back to top</a></div></footer>
+  <dialog id="walkthrough-dialog" aria-labelledby="walkthrough-title" closedby="any">
+    <header class="walkthrough-heading"><h2 id="walkthrough-title">Two-minute session</h2><form method="dialog"><button type="submit" autofocus>Close</button></form></header>
+    <video id="walkthrough-film" aria-label="Preview of three work intervals with rest between rounds" width="1080" height="1920" muted controls playsinline preload="none" poster="/work/voltloop/assets/timer-walkthrough-poster.webp">
+      <source src="/work/voltloop/assets/voltloop-two-minute-timer-voice-v2.mp4" type="video/mp4">
+      <a href="/work/voltloop/assets/voltloop-two-minute-timer-voice-v2.mp4">Open the timer walkthrough</a>
+    </video>
+  </dialog>
+</body>
+</html>

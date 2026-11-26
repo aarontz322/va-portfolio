@@ -1,6 +1,8 @@
 export const industries = {
+  skincare: "Beauty & skincare",
   "construction-roofing": "Construction & roofing",
   fashion: "Fashion & accessories",
+  fitness: "Fitness",
   jewelry: "Jewelry",
   "real-estate": "Real estate",
 } as const;
@@ -43,5 +45,19 @@ export const portfolioProjects: PortfolioProject[] = [
     industry: "jewelry",
     desc: "See how the Fold pendant sits with three necklines, take a closer look at the cuff and studs, and build a sample jewelry order.",
     alt: "SIVRENNE storefront introducing the Fold collection of silver jewelry",
+  },
+  {
+    slug: "amberlune",
+    title: "AMBERLUNE",
+    industry: "skincare",
+    desc: "See how Golden Drop Serum looks on skin, compare the 30 mL bottle to a lip balm, and try the demo shopping bag.",
+    alt: "AMBERLUNE storefront with an amber glass dropper bottle beside the Golden Drop Serum product details",
+  },
+  {
+    slug: "voltloop",
+    title: "VOLTLOOP",
+    industry: "fitness",
+    desc: "Watch the resistance bands in action, preview a two-minute workout, and set your own work and rest intervals.",
+    alt: "VOLTLOOP storefront showing three fabric resistance bands and their black carry pouch",
   },
 ];

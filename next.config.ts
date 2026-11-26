@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
       { source: "/work/verane", destination: "/work/verane/index.html" },
       { source: "/work/golden-hour-realty", destination: "/work/golden-hour-realty/index.html" },
       { source: "/work/sivrenne", destination: "/work/sivrenne/index.html" },
+      { source: "/work/amberlune", destination: "/work/amberlune/index.html" },
+      { source: "/work/voltloop", destination: "/work/voltloop/index.html" },
     ];
   },
   images: {
