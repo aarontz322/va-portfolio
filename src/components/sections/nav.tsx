@@ -1,4 +1,5 @@
 "use client";
+import { BOOKING_URL } from "@/lib/contact";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -59,7 +60,7 @@ export function Nav() {
         {/* Right side */}
         <div className="flex items-center gap-3">
           <ShinyButton
-            href="https://calendly.com/eyronggwp/30min"
+            href={BOOKING_URL}
             className="text-[hsl(var(--foreground))] border border-[hsl(var(--border))]"
           >
             Book a Free Call
@@ -118,7 +119,7 @@ export function Nav() {
                 ))}
                 <li className="pt-3">
                   <ShinyButton
-                    href="https://calendly.com/eyronggwp/30min"
+                    href={BOOKING_URL}
                     onClick={() => setOpen(false)}
                     className="w-full justify-center text-[hsl(var(--foreground))] border border-[hsl(var(--primary)/50%)] bg-[hsl(var(--primary)/10%)]"
                   >

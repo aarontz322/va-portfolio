@@ -1,4 +1,5 @@
 "use client";
+import { BOOKING_URL } from "@/lib/contact";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import { ProfileCard } from "@/components/ui/profile-card";
@@ -59,7 +60,7 @@ export function AboutSection() {
                 onlinejobs: "https://v2.onlinejobs.ph/jobseekers/info/397279",
                 upwork: "https://www.upwork.com/freelancers/markaaronnovicio",
               }}
-              calendlyLink="https://calendly.com/eyronggwp/30min"
+              calendlyLink={BOOKING_URL}
             />
           </motion.div>
         </div>

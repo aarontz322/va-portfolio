@@ -11,17 +11,17 @@ type Work = {
   title: string;
   desc: string;
   stats?: { value: string; label: string }[];
-  /** Screenshot of the real work. Cards without one stay text only. */
+  /** Work preview or clearly labeled reconstruction using fictional data. */
   image?: { src: string; alt: string };
   demoHref?: string;
 };
 
 // Screenshots that match no single card. Shown as a small row under the grid.
 const moreSamples = [
-  { src: "/works/Example1.webp", alt: "Outreach tracker sheet with firm, contact, email and reply columns" },
-  { src: "/works/Example2.webp", alt: "Tenant prospecting sheet with business type, distance and contact details" },
-  { src: "/works/Example3.webp", alt: "Hotel lead list with contact person, role and LinkedIn profile" },
-  { src: "/works/Lead list.webp", alt: "Lead export sheet with lead status, names and personalization lines" },
+  { src: "/works/Example1.webp?v=2", alt: "Fictional outreach tracker showing each practice’s response and next action" },
+  { src: "/works/Example2.webp?v=2", alt: "Fictional retail tenant shortlist comparing space needs, fit and follow-up" },
+  { src: "/works/Example3.webp?v=2", alt: "Fictional hotel prospect list showing decision-making roles and verification status" },
+  { src: "/works/Lead list.webp?v=2", alt: "Fictional lead export showing which records to include, merge or hold for review" },
   { src: "/works/instantly_2026-03-23 (2).webp", alt: "Instantly campaign chart showing contacted, opened, replied and opportunities" },
 ];
 
@@ -42,7 +42,7 @@ const works: Work[] = [
     title: "LinkedIn Sales Navigator List",
     desc: "Targeted lead list with name, role, company, email pattern, and LinkedIn URLs. Ready for outreach.",
     stats: [],
-    image: { src: "/works/Example.webp", alt: "Lead list spreadsheet with decision maker names, roles, emails and LinkedIn links" },
+    image: { src: "/works/Example.webp?v=2", alt: "Fictional athletics outreach list showing school programs, contact roles and outreach signals" },
   },
   ...portfolioProjects.map((project) => ({
     category: "websites",
@@ -69,7 +69,7 @@ const works: Work[] = [
     title: "GHL Pipeline Setup & Cleanup",
     desc: "Full CRM organization including deduplication, pipeline stage setup, tagging, notes, and task assignment.",
     stats: [],
-    image: { src: "/works/GHL Sample.webp", alt: "GoHighLevel contacts list with tags and last activity" },
+    image: { src: "/works/GHL Sample.webp?v=2", alt: "Fictional CRM cleanup queue showing each contact’s stage and assigned task" },
   },
   {
     category: "automation",
@@ -102,7 +102,7 @@ const works: Work[] = [
     stats: [
       { value: "500+", label: "Verified Contacts" },
     ],
-    image: { src: "/works/Example4.webp", alt: "Prospect research sheet with executives, companies, sectors and contact details" },
+    image: { src: "/works/Example4.webp?v=2", alt: "Fictional investment prospect list showing firms, decision-making roles and investment focus" },
   },
   {
     category: "crm",

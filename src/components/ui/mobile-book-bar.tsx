@@ -1,4 +1,5 @@
 "use client";
+import { BOOKING_URL } from "@/lib/contact";
 import { useEffect, useState } from "react";
 
 /**
@@ -40,7 +41,7 @@ export function MobileBookBar() {
       }`}
     >
       <a
-        href="https://calendly.com/eyronggwp/30min"
+        href={BOOKING_URL}
         target="_blank"
         rel="noopener noreferrer"
         className="flex min-h-12 w-full items-center justify-center rounded-lg bg-[hsl(var(--primary))] text-sm font-semibold uppercase tracking-wide text-[hsl(var(--primary-foreground))]"

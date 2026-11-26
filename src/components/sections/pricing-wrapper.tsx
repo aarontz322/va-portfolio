@@ -1,4 +1,5 @@
 "use client";
+import { BOOKING_URL } from "@/lib/contact";
 import { motion } from "framer-motion";
 import { Zap } from "lucide-react";
 import { PricingSection } from "@/components/ui/pricing";
@@ -16,7 +17,7 @@ const plans = [
       { text: "Daily progress updates" },
       { text: "US time zone availability" },
     ],
-    btn: { text: "Book a Free Call", href: "https://calendly.com/eyronggwp/30min" },
+    btn: { text: "Book a Free Call", href: BOOKING_URL },
   },
   {
     name: "Scale & Automate",
@@ -30,7 +31,7 @@ const plans = [
       { text: "Competitor & prospect research" },
       { text: "SOP documentation & follow-through" },
     ],
-    btn: { text: "Book a Free Call", href: "https://calendly.com/eyronggwp/30min" },
+    btn: { text: "Book a Free Call", href: BOOKING_URL },
     highlighted: true,
   },
   {
@@ -45,7 +46,7 @@ const plans = [
       { text: "Automation support (Make, Zapier)" },
       { text: "Priority response & turnaround" },
     ],
-    btn: { text: "Book a Free Call", href: "https://calendly.com/eyronggwp/30min" },
+    btn: { text: "Book a Free Call", href: BOOKING_URL },
   },
 ];
 
@@ -88,7 +89,7 @@ export function PricingSectionWrapper() {
             <strong className="text-[hsl(var(--foreground))]">$8–10/hr</strong>. Good for
             one-time tasks or flexible help as needed.{" "}
             <a
-              href="https://calendly.com/eyronggwp/30min"
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-[hsl(var(--primary))] underline underline-offset-4 hover:opacity-80 transition-opacity"

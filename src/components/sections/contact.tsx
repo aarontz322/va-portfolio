@@ -1,4 +1,5 @@
 "use client";
+import { BOOKING_URL } from "@/lib/contact";
 import { motion } from "framer-motion";
 import { Mail, Globe, Linkedin } from "lucide-react";
 import { SiUpwork } from "react-icons/si";
@@ -34,7 +35,7 @@ export function ContactSection() {
 
             <div className="flex flex-wrap justify-center gap-4 mb-14">
               <ShinyButton
-                href="https://calendly.com/eyronggwp/30min"
+                href={BOOKING_URL}
                 className="text-[hsl(var(--foreground))] border border-[hsl(var(--primary)/50%)] bg-[hsl(var(--primary)/10%)] px-10 py-3 text-sm"
               >
                 Book a Free Call

@@ -1,4 +1,5 @@
 "use client";
+import { BOOKING_URL } from "@/lib/contact";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ShinyButton } from "@/components/ui/shiny-button";
@@ -103,7 +104,7 @@ export function HeroSection() {
             className="flex flex-wrap gap-4 mb-4"
           >
             <ShinyButton
-              href="https://calendly.com/eyronggwp/30min"
+              href={BOOKING_URL}
               className="text-[hsl(var(--foreground))] border border-[hsl(var(--primary)/50%)] bg-[hsl(var(--primary)/10%)] px-8 py-3 text-sm"
             >
               Book a Free Call
