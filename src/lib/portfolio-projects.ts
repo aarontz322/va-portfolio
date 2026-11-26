@@ -24,6 +24,20 @@ type PortfolioProject = {
 
 export const portfolioProjects: PortfolioProject[] = [
   {
+    slug: "sales-pro-impact",
+    title: "Sales Pro Impact",
+    industry: "sales-training",
+    desc: "Explore the Territory Reset workbook and watch Tom Hagen coach equipment sales teams through territory planning and account prioritization.",
+    alt: "Sales Pro Impact homepage showing the “Your number needs a plan” headline beside a territory planning worksheet",
+  },
+  {
+    slug: "equilibrium-debt-recovery",
+    title: "Equilibrium Debt Recovery",
+    industry: "debt-recovery",
+    desc: "Explore an independent website concept that helps businesses find the right recovery service for an unpaid invoice or rent arrears.",
+    alt: "Equilibrium homepage concept with an unpaid-invoice enquiry and Alan Mills’s signed portrait",
+  },
+  {
     slug: "slatewell-roofing",
     title: "Slatewell Roofing",
     industry: "construction-roofing",
@@ -85,19 +99,5 @@ export const portfolioProjects: PortfolioProject[] = [
     industry: "b2b-manufacturing",
     desc: "I put the machining film beside a sample quote brief so buyers can see how the part is made before describing their own.",
     alt: "CORVANE PRECISION homepage showing an end mill cutting an aluminum part",
-  },
-  {
-    slug: "equilibrium-debt-recovery",
-    title: "Equilibrium Debt Recovery",
-    industry: "debt-recovery",
-    desc: "Explore an independent website concept that helps businesses find the right recovery service for an unpaid invoice or rent arrears.",
-    alt: "Equilibrium homepage concept with an unpaid-invoice enquiry and Alan Mills’s signed portrait",
-  },
-  {
-    slug: "sales-pro-impact",
-    title: "Sales Pro Impact",
-    industry: "sales-training",
-    desc: "Explore the Territory Reset workbook and watch Tom Hagen coach equipment sales teams through territory planning and account prioritization.",
-    alt: "Sales Pro Impact homepage showing the “Your number needs a plan” headline beside a territory planning worksheet",
   },
 ];
