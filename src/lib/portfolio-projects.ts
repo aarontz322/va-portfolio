@@ -70,7 +70,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "AMBERLUNE",
     industry: "skincare",
     desc: "See how Golden Drop Serum looks on skin, compare the 30 mL bottle to a lip balm, and try the demo shopping bag.",
-    alt: "AMBERLUNE storefront with an amber glass dropper bottle beside the Golden Drop Serum product details",
+    alt: "Amberlune homepage with a golden serum drop suspended from a glass pipette beside the evening skincare headline",
   },
   {
     slug: "voltloop",
