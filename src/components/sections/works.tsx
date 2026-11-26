@@ -2,6 +2,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { BorderTrail } from "@/components/ui/border-trail";
 import { industries, portfolioProjects } from "@/lib/portfolio-projects";
 import { WorkHelix, type HelixSample } from "./work-helix";
@@ -340,7 +341,7 @@ export function WorksSection() {
         {!!websites.length && <>
           <div className={styles.cardHeader}>
             <h2 className="font-display font-bold text-3xl md:text-5xl tracking-[-0.03em]">Website projects</h2>
-            <p className="text-[hsl(var(--muted-foreground))]">Self-initiated portfolio concepts</p>
+            <p><Link href="/portfolio" className="text-[hsl(var(--muted-foreground))] underline underline-offset-4 hover:text-[hsl(var(--foreground))]">Browse by industry</Link></p>
           </div>
           <WebsiteGrid projects={websites} />
         </>}

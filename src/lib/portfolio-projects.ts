@@ -9,6 +9,7 @@ export const industries = {
   "luxury-travel": "Luxury travel",
   "mental-health": "Mental health & wellness",
   "real-estate": "Real estate",
+  "sales-training": "Sales training",
 } as const;
 
 export type Industry = keyof typeof industries;
@@ -91,5 +92,12 @@ export const portfolioProjects: PortfolioProject[] = [
     industry: "debt-recovery",
     desc: "Explore an independent website concept that helps businesses find the right recovery service for an unpaid invoice or rent arrears.",
     alt: "Equilibrium homepage concept with an unpaid-invoice enquiry and Alan Mills’s signed portrait",
+  },
+  {
+    slug: "sales-pro-impact",
+    title: "Sales Pro Impact",
+    industry: "sales-training",
+    desc: "Explore the Territory Reset workbook and watch Tom Hagen coach equipment sales teams through territory planning and account prioritization.",
+    alt: "Sales Pro Impact homepage showing the “Your number needs a plan” headline beside a territory planning worksheet",
   },
 ];

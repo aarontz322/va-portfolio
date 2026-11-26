@@ -2,6 +2,12 @@ import type { NextConfig } from "next";
 import { SITE_ORIGIN } from "./src/lib/site-url";
 
 const nextConfig: NextConfig = {
+  async headers() {
+    return [{
+      source: "/work/sales-pro-impact/:path*",
+      headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+    }];
+  },
   async redirects() {
     // Enable on the public deployment once the new domain is serving over HTTPS.
     if (process.env.ENABLE_LEGACY_PORTFOLIO_REDIRECT !== "1") return [];
