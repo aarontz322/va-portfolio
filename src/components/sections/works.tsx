@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
 import { BorderTrail } from "@/components/ui/border-trail";
+import { industries, portfolioProjects } from "@/lib/portfolio-projects";
 
 type Work = {
   category: string;
@@ -43,22 +44,14 @@ const works: Work[] = [
     stats: [],
     image: { src: "/works/Example.webp", alt: "Lead list spreadsheet with decision maker names, roles, emails and LinkedIn links" },
   },
-  {
+  ...portfolioProjects.map((project) => ({
     category: "websites",
-    platform: "Home services · Portfolio concept",
-    title: "Slatewell Roofing",
-    desc: "Compare one home's roof before and after replacement, watch the project film, and build a sample inspection request.",
-    image: { src: "/works/slatewell-roofing.webp", alt: "Slatewell Roofing homepage with the roof inspection film beside the headline" },
-    demoHref: "/work/slatewell-roofing",
-  },
-  {
-    category: "websites",
-    platform: "Fashion · Portfolio concept",
-    title: "VERANE",
-    desc: "Explore the Cara handbag in four colors, watch the campaign films, and try different combinations in the shopping bag.",
-    image: { src: "/works/verane.webp", alt: "VERANE storefront showing the cognac Cara handbag on a marble café table" },
-    demoHref: "/work/verane",
-  },
+    platform: `${industries[project.industry]} · Portfolio concept`,
+    title: project.title,
+    desc: project.desc,
+    image: { src: `/works/${project.slug}.webp`, alt: project.alt },
+    demoHref: `/work/${project.slug}`,
+  })),
   {
     category: "crm",
     platform: "Outreach · Instantly.ai",

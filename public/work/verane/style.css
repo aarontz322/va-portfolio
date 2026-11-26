@@ -143,7 +143,8 @@ body:has(dialog[open]) { overflow: hidden; }
 .comparison-head { display: flex; align-items: center; justify-content: space-between; gap: .65rem; }
 .comparison-head h2 { font-size: clamp(1.2rem, 4vw, 1.55rem); }
 .comparison-head .close { flex-shrink: 0; }
-#comparison-film { align-self: center; background: #171310; width: min(100%, 24rem, calc(56.25dvh - 3.4rem)); height: auto; aspect-ratio: 9 / 16; object-fit: contain; }
+#comparison-disclosure { align-self: center; max-width: 36ch; margin-top: .5rem; color: #574b3f; font-size: .85rem; line-height: 1.4; }
+#comparison-film { align-self: center; background: #171310; width: min(100%, 24rem, calc(56.25dvh - 5rem)); height: auto; aspect-ratio: 9 / 16; object-fit: contain; }
 .bag-head { display: flex; align-items: center; justify-content: space-between; padding-bottom: 1.2rem; border-bottom: 1px solid var(--line); }
 .bag-head h2 { font-size: 2.8rem; }
 .close { width: 2.75rem; height: 2.75rem; font-size: 1.8rem; }
